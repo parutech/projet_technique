@@ -51,6 +51,9 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree) :
         
     nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '\\' + dateDepart.replace("/", "-") + '_' + duree + '.txt'
 
+    if (os.path.exists(os.getcwd() + '\\data\\' + actionSymbole) == False) :
+        os.mkdir(os.getcwd() + '\\data\\' + actionSymbole)
+
     with open(nomFichier, 'w') as file :
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i) + complementUrl)
