@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,24 +11,22 @@ def ListeSymboles() :
     reponse = requests.get(baseUrl + "1")
     if (reponse.ok) :
         soup = BeautifulSoup(reponse.text, 'lxml')
-        lienDernierePage = soup.find_all('a', {'aria-label' : 'Dernière page'})
+        lienDernierePage = soup.findAll('a', {'aria-label' : 'Dernière page'})
         if (len(lienDernierePage) == 0) :
             nombrePages = 1
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1])
 
     with open('listeSymboles.txt', 'w') as file :
-        file.write('Action;Symbole' + '\n')
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i))
             if (reponse.ok) :
                 soup = BeautifulSoup(reponse.text, 'lxml')
-                lignesTableau = soup.find_all('tr', {'class' : 'c-table__row'})
+                lignesTableau = soup.findAll('tr', {'class' : 'c-table__row'})
                 lignesTableau.pop(0)
                 for ligne in lignesTableau :
                     symbole = ligne['data-ist']
-                    nomAction = ligne.find_all('a')[0].text
-                    print(nomAction + ';' + symbole)
+                    nomAction = ligne.findAll('a')[0].text
                     file.write(nomAction + ';' + symbole + '\n')
 
     
@@ -40,30 +39,35 @@ def ValeursHistoriques(actionSymbole, dateDepart, duree) :
     reponse = requests.get(baseUrl + "1" + complementUrl)
     if (reponse.ok) :
         soup = BeautifulSoup(reponse.text, 'lxml')
-        lienDernierePage = soup.find_all('a', {'aria-label' : 'Dernière page'})
+        lienDernierePage = soup.findAll('a', {'aria-label' : 'Dernière page'})
         if (len(lienDernierePage) == 0) :
-            nombrePages = len(soup.find_all('a'))
+            nombrePages = len(soup.findAll('a'))
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1].split('?symbol')[0])
         
-    nomFichier = actionSymbole + '_' + dateDepart.replace("/", "-") + '_' + duree + '.txt'
+    nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '_' + dateDepart.replace("/", "-") + '_' + duree + '.txt'
 
     with open(nomFichier, 'w') as file :
-        file.write('Date;Ouverture;Cloture' + '\n')
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i) + complementUrl)
             if (reponse.ok) :
                 soup = BeautifulSoup(reponse.text, 'lxml')
-                lignesTableau = soup.find_all('tr', {'class' : 'c-table__row'})
+                lignesTableau = soup.findAll('tr', {'class' : 'c-table__row'})
                 for ligne in lignesTableau :
-                    colonnes = ligne.find_all('td')
+                    colonnes = ligne.findAll('td')
                     date = colonnes[0].text.strip()
                     ouverture = colonnes[5].text.strip()
                     cloture = colonnes[1].text.strip()
-                    print(date + ';' + ouverture + ';' + cloture)
                     file.write(date + ';' + ouverture + ';' + cloture + '\n')
 
 
-#ListeSymboles()
-ValeursHistoriques('1rPAF', '01/01/2020', '2M')
+def DonneesSimulation() :
+    with open('listeSymboles.txt', 'r') as file :
+        lines = file.readlines()
+        for line in lines :
+            symbole = line.strip().split(';')[1]
+            ValeursHistoriques(symbole, '01/01/2019', '2Y')
 
+
+ListeSymboles()
+DonneesSimulation()
