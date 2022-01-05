@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 # Récupération de la liste de toutes les actions présentes sur Euronext Paris
-def ListeSymboles() :
+def CreerListeSymboles() :
     baseUrl = 'https://www.boursorama.com/bourse/actions/cotations/page-'
     nombrePages = 0
 
@@ -27,11 +27,15 @@ def ListeSymboles() :
                 for ligne in lignesTableau :
                     symbole = ligne['data-ist']
                     nomAction = ligne.findAll('a')[0].text
-                    file.write(nomAction + ';' + symbole + '\n')
+                    reponse = requests.get('https://www.boursorama.com/_formulaire-periode/page-1?symbol=' + symbole)
+                    soup = BeautifulSoup(reponse.text, 'lxml')
+                    alerte = soup.findAll('p', {'class' : 'c-alert__text'})
+                    if (len(alerte) == 0) :
+                        file.write(nomAction + ';' + symbole + '\n')
 
-    
+
 # Récupération des valeurs historiques d'une action pour une période donnée
-def ValeursHistoriques(actionSymbole, dateDepart, duree) :
+def CreerValeursHistoriques(actionSymbole, dateDepart, duree) :
     baseUrl = 'https://www.boursorama.com/_formulaire-periode/page-'
     complementUrl = '?symbol=' + actionSymbole + '&historic_search[startDate]=' + dateDepart + '&historic_search[duration]=' + duree + '&historic_search[period]=1'
     nombrePages = 0
@@ -45,7 +49,7 @@ def ValeursHistoriques(actionSymbole, dateDepart, duree) :
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1].split('?symbol')[0])
         
-    nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '_' + dateDepart.replace("/", "-") + '_' + duree + '.txt'
+    nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '\\' + dateDepart.replace("/", "-") + '_' + duree + '.txt'
 
     with open(nomFichier, 'w') as file :
         for i in range(1, nombrePages + 1) :
@@ -61,10 +65,12 @@ def ValeursHistoriques(actionSymbole, dateDepart, duree) :
                     file.write(date + ';' + ouverture + ';' + cloture + '\n')
 
 
-def DonneesSimulation() :
+def CreerDonneesSimulation() :
     with open('listeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            ValeursHistoriques(symbole, '01/01/2019', '2Y')
+            CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
+
+CreerDonneesSimulation()
