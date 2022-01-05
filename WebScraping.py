@@ -68,6 +68,3 @@ def DonneesSimulation() :
             symbole = line.strip().split(';')[1]
             ValeursHistoriques(symbole, '01/01/2019', '2Y')
 
-
-ListeSymboles()
-DonneesSimulation()
