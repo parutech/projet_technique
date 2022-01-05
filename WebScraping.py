@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 # Récupération de la liste de toutes les actions présentes sur Euronext Paris
 def ListeSymboles() :
     baseUrl = 'https://www.boursorama.com/bourse/actions/cotations/page-'
@@ -29,10 +30,9 @@ def ListeSymboles() :
                     print(nomAction + ';' + symbole)
                     file.write(nomAction + ';' + symbole + '\n')
 
-
-
+    
 # Récupération des valeurs historiques d'une action pour une période donnée
-def ValeursHistoriques(actionSymbole = '1rPAB', dateDepart = '01/01/2019', duree = '1M') :
+def ValeursHistoriques(actionSymbole, dateDepart, duree) :
     baseUrl = 'https://www.boursorama.com/_formulaire-periode/page-'
     complementUrl = '?symbol=' + actionSymbole + '&historic_search[startDate]=' + dateDepart + '&historic_search[duration]=' + duree + '&historic_search[period]=1'
     nombrePages = 0
@@ -42,7 +42,7 @@ def ValeursHistoriques(actionSymbole = '1rPAB', dateDepart = '01/01/2019', duree
         soup = BeautifulSoup(reponse.text, 'lxml')
         lienDernierePage = soup.find_all('a', {'aria-label' : 'Dernière page'})
         if (len(lienDernierePage) == 0) :
-            nombrePages = 1
+            nombrePages = len(soup.find_all('a'))
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1].split('?symbol')[0])
         
@@ -52,11 +52,9 @@ def ValeursHistoriques(actionSymbole = '1rPAB', dateDepart = '01/01/2019', duree
         file.write('Date;Ouverture;Cloture' + '\n')
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i) + complementUrl)
-            print(baseUrl + str(i) + complementUrl)
             if (reponse.ok) :
                 soup = BeautifulSoup(reponse.text, 'lxml')
                 lignesTableau = soup.find_all('tr', {'class' : 'c-table__row'})
-                print(lignesTableau)
                 for ligne in lignesTableau :
                     colonnes = ligne.find_all('td')
                     date = colonnes[0].text.strip()
@@ -65,5 +63,7 @@ def ValeursHistoriques(actionSymbole = '1rPAB', dateDepart = '01/01/2019', duree
                     print(date + ';' + ouverture + ';' + cloture)
                     file.write(date + ';' + ouverture + ';' + cloture + '\n')
 
-ListeSymboles()
-ValeursHistoriques()
+
+#ListeSymboles()
+ValeursHistoriques('1rPAF', '01/01/2020', '2M')
+
