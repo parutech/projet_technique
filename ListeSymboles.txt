@@ -1,0 +1,371 @@
+<<<<<<< HEAD:listeSymboles.txt
+AB SCIENCE;1rPAB;Sant�
+ABC ARBITRAGE;1rPABCA;Soci�t�s financi�res
+ACCOR;1rPAC;Services aux consommateurs
+ACTIA GROUP;1rPATI;Industries
+ADOCIA;1rPADOC;Sant�
+ADP;1rPADP;Industries
+AIR FRANCE-KLM;1rPAF;Services aux consommateurs
+AIR LIQUIDE;1rPAI;Mat�riaux de base
+AIRBUS;1rPAIR;Industries
+AKKA TECHNOLOGIES;1rPAKA;Industries
+AKWEL;1rPAKW;Biens de consommation
+ALBIOMA;1rPABIO;Services aux collectivit�s
+ALD;1rPALD;Services aux consommateurs
+ALSTOM;1rPALO;Industries
+ALTAMIR;1rPLTA;Soci�t�s financi�res
+ALTAREA;1rPALTA;Soci�t�s financi�res
+ALTEN;1rPATE;Technologies
+ARCHOS;1rPALJXR;Biens de consommation
+ARGAN;1rPARG;Soci�t�s financi�res
+ARKEMA;1rPAKE;Mat�riaux de base
+=======
+AB SCIENCE;1rPAB;Santé
+ABC ARBITRAGE;1rPABCA;Sociétés financières
+ACCOR;1rPAC;Services aux consommateurs
+ACTIA GROUP;1rPATI;Industries
+ADOCIA;1rPADOC;Santé
+ADP;1rPADP;Industries
+AIR FRANCE-KLM;1rPAF;Services aux consommateurs
+AIR LIQUIDE;1rPAI;Matériaux de base
+AIRBUS;1rPAIR;Aviation
+AKKA TECHNOLOGIES;1rPAKA;Industries
+AKWEL;1rPAKW;Biens de consommation
+ALBIOMA;1rPABIO;Services aux collectivités
+ALD;1rPALD;Services aux consommateurs
+ALSTOM;1rPALO;Industries
+ALTAMIR;1rPLTA;Sociétés financières
+ALTAREA;1rPALTA;Sociétés financières
+ALTEN;1rPATE;Technologies
+ARCHOS;1rPALJXR;Biens de consommation
+ARGAN;1rPARG;Sociétés financières
+ARKEMA;1rPAKE;Matériaux de base
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+ARTMARKET.COM;1rPPRC;Services aux consommateurs
+ASSYSTEM;1rPASY;Industries
+ATARI;1rPATA;Biens de consommation
+ATOS;1rPATO;Technologies
+AUBAY;1rPAUB;Technologies
+<<<<<<< HEAD:listeSymboles.txt
+AXA;1rPCS;Soci�t�s financi�res
+=======
+AXA;1rPCS;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+AXWAY SOFTWARE;1rPAXW;Technologies
+BENETEAU;1rPBEN;Biens de consommation
+BIC;1rPBB;Biens de consommation
+BIGBEN INTERACTIVE;1rPBIG;Biens de consommation
+<<<<<<< HEAD:listeSymboles.txt
+BIOMERIEUX;1rPBIM;Sant�
+BNP PARIBAS;1rPBNP;Soci�t�s financi�res
+BOIRON;1rPBOI;Sant�
+=======
+BIOMERIEUX;1rPBIM;Santé
+BNP PARIBAS;1rPBNP;Sociétés financières
+BOIRON;1rPBOI;Santé
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+BOLLORE;1rPBOL;Industries
+BONDUELLE;1rPBON;Biens de consommation
+BOUYGUES;1rPEN;Industries
+BUREAU VERITAS;1rPBVI;Industries
+CAPGEMINI;1rPCAP;Technologies
+<<<<<<< HEAD:listeSymboles.txt
+CARMILA;1rPCARM;Soci�t�s financi�res
+=======
+CARMILA;1rPCARM;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+CARREFOUR;1rPCA;Services aux consommateurs
+CASINO GUICHARD PERRACHON;1rPCO;Services aux consommateurs
+CATERING INTL CIS;1rPCTRG;Industries
+CEGEDIM;1rPCGM;Technologies
+<<<<<<< HEAD:listeSymboles.txt
+CGG;1rPCGG;P�trole et gaz
+=======
+CGG;1rPCGG;Pétrole et gaz
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+CHARGEURS;1rPCRI;Biens de consommation
+CHRISTIAN DIOR;1rPCDI;Biens de consommation
+CIE DES ALPES;1rPCDA;Services aux consommateurs
+CLARANOVA SE;1rPCLA;Technologies
+CNIM GROUP;1rPCOM;Industries
+<<<<<<< HEAD:listeSymboles.txt
+CNP ASSURANCES;1rPCNP;Soci�t�s financi�res
+COFACE;1rPCOFA;Soci�t�s financi�res
+COLAS;1rPRE;Industries
+COMP DE L'ODET;1rPODET;Industries
+COVIVIO;1rPCOV;Soci�t�s financi�res
+CREDIT AGRICOLE SA;1rPACA;Soci�t�s financi�res
+=======
+CNP ASSURANCES;1rPCNP;Sociétés financières
+COFACE;1rPCOFA;Sociétés financières
+COLAS;1rPRE;Industries
+COMP DE L'ODET;1rPODET;Industries
+COVIVIO;1rPCOV;Sociétés financières
+CREDIT AGRICOLE SA;1rPACA;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+CRIT;1rPCEN;Industries
+DANONE;1rPBN;Biens de consommation
+DASSAULT AVIATION;1rPAM;Aviation
+DASSAULT SYSTEMES;1rPDSY;Technologies
+<<<<<<< HEAD:listeSymboles.txt
+DBV TECHNOLOGIES;1rPDBV;Sant�
+DMS;1rPDGM;Sant�
+EDENRED;1rPEDEN;Industries
+EDF;1rPEDF;Services aux collectivit�s
+EIFFAGE;1rPFGR;Industries
+EKINOPS;1rPEKI;Industries
+ELIOR GROUP;1rPELIOR;Services aux consommateurs
+ENGIE;1rPENGI;Services aux collectivit�s
+ERAMET;1rPERA;Mat�riaux de base
+ERYTECH PHARMA;1rPERYP;Sant�
+ESSILORLUXOTTICA;1rPEL;Sant�
+ESSO;1rPES;P�trole et gaz
+EURAZEO;1rPRF;Industries
+EUROFINS SCIENTIFIC;1rPERF;Sant�
+EURONEXT;1rPENX;Soci�t�s financi�res
+=======
+DBV TECHNOLOGIES;1rPDBV;Santé
+DMS;1rPDGM;Santé
+EDENRED;1rPEDEN;Industries
+EDF;1rPEDF;Services aux collectivités
+EIFFAGE;1rPFGR;Industries
+EKINOPS;1rPEKI;Industries
+ELIOR GROUP;1rPELIOR;Services aux consommateurs
+ENGIE;1rPENGI;Services aux collectivités
+ERAMET;1rPERA;Matériaux de base
+ERYTECH PHARMA;1rPERYP;Santé
+ESSILORLUXOTTICA;1rPEL;Santé
+ESSO;1rPES;Pétrole et gaz
+EURAZEO;1rPRF;Industries
+EUROFINS SCIENTIFIC;1rPERF;Santé
+EURONEXT;1rPENX;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+EUROPCAR MOBILITY GRP;1rPEUCAR;Services aux consommateurs
+EUTELSAT COMMUNIC.;1rPETL;Services aux consommateurs
+EXEL INDUSTRIES A;1rPEXE;Industries
+FAURECIA;1rPEO;Biens de consommation
+FDJ;1rPFDJ;Services aux consommateurs
+FNAC DARTY;1rPFNAC;Services aux consommateurs
+<<<<<<< HEAD:listeSymboles.txt
+GECINA;1rPGFC;Soci�t�s financi�res
+GENERAL ELECTRIC;1rPGNE;Energie
+GENFIT;1rPGNFT;Sant�
+GETLINK (ex: EUROTUNNEL);1rPGET;Industries
+GL EVENTS;1rPGLO;Industries
+GROUPE GORGE;1rPGOE;Industries
+GTT (GAZTRANSPORT ET TEC.);1rPGTT;P�trole et gaz
+=======
+GECINA;1rPGFC;Sociétés financières
+GENERAL ELECTRIC;1rPGNE;Energie
+GENFIT;1rPGNFT;Santé
+GETLINK (ex: EUROTUNNEL);1rPGET;Industries
+GL EVENTS;1rPGLO;Industries
+GROUPE GORGE;1rPGOE;Industries
+GTT (GAZTRANSPORT ET TEC.);1rPGTT;Pétrole et gaz
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+HAULOTTE GROUP;1rPPIG;Industries
+HERMES INTL;1rPRMS;Biens de consommation
+HEXAOM;1rPHEXA;Biens de consommation
+HOLCIM;1rPHOLN;Industries
+<<<<<<< HEAD:listeSymboles.txt
+ICADE;1rPICAD;Soci�t�s financi�res
+ID LOGISTICS;1rPIDL;Industries
+IMERYS;1rPNK;Mat�riaux de base
+INNATE PHARMA;1rPIPH;Sant�
+INTERPARFUMS;1rPITP;Biens de consommation
+IPSEN;1rPIPN;Sant�
+IPSOS;1rPIPS;Services aux consommateurs
+JACQUET METALS;1rPJCQ;Mat�riaux de base
+JCDECAUX SA.;1rPDEC;Services aux consommateurs
+KERING;1rPKER;Services aux consommateurs
+KLEPIERRE;1rPLI;Soci�t�s financi�res
+KORIAN;1rPKORI;Sant�
+=======
+ICADE;1rPICAD;Sociétés financières
+ID LOGISTICS;1rPIDL;Industries
+IMERYS;1rPNK;Matériaux de base
+INNATE PHARMA;1rPIPH;Santé
+INTERPARFUMS;1rPITP;Biens de consommation
+IPSEN;1rPIPN;Santé
+IPSOS;1rPIPS;Services aux consommateurs
+JACQUET METALS;1rPJCQ;Matériaux de base
+JCDECAUX SA.;1rPDEC;Services aux consommateurs
+KERING;1rPKER;Services aux consommateurs
+KLEPIERRE;1rPLI;Sociétés financières
+KORIAN;1rPKORI;Santé
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+L'OREAL;1rPOR;Biens de consommation
+LAGARDERE SA;1rPMMB;Services aux consommateurs
+LATECOERE;1rPLAT;Industries
+LAURENT PERRIER;1rPLPE;Biens de consommation
+LECTRA;1rPLSS;Technologies
+LEGRAND;1rPLR;Industries
+LISI;1rPFII;Industries
+<<<<<<< HEAD:listeSymboles.txt
+LNA SANTE;1rPLNA;Sant�
+LUMIBIRD;1rPLBIRD;Sant�
+=======
+LNA SANTE;1rPLNA;Santé
+LUMIBIRD;1rPLBIRD;Santé
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+LVMH;1rPMC;Biens de consommation
+M6 METROPOLE TELE.;1rPMMT;Services aux consommateurs
+MANITOU BF;1rPMTU;Industries
+MANUTAN INTL;1rPMAN;Industries
+MARIE BRIZARD;1rPMBWS;Biens de consommation
+<<<<<<< HEAD:listeSymboles.txt
+MAROC TELECOM;1rPIAM;T�l�communications
+MAUNA KEA TECH;1rPMKEA;Sant�
+MAUREL & PROM;1rPMAU;P�trole et gaz
+MERCIALYS;1rPMERY;Soci�t�s financi�res
+MERSEN;1rPMRN;Industries
+METABOLIC EXPLORER;1rPMETEX;Mat�riaux de base
+MICHELIN;1rPML;Biens de consommation
+NANOBIOTIX;1rPNANO;Sant�
+NEXANS;1rPNEX;Industries
+NEXITY;1rPNXI;Soci�t�s financi�res
+NICOX;1rPCOX;Sant�
+NOKIA;1rPNOKIA;Technologies
+OENEO;1rPSBT;Industries
+ONXEO;1rPALONX;Sant�
+ORANGE;1rPORA;T�l�communications
+ORPEA;1rPORP;Sant�
+PERNOD RICARD;1rPRI;Biens de consommation
+PEUGEOT INVEST;1rPPEUG;Soci�t�s financi�res
+PHARMAGEST INTERACT;1rPPHA;Technologies
+PIERRE ET VACANCES;1rPVAC;Services aux consommateurs
+PLASTIC OMNIUM;1rPPOM;Biens de consommation
+PLASTiVALOIRE;1rPPVL;Mat�riaux de base
+=======
+MAROC TELECOM;1rPIAM;Télécommunications
+MAUNA KEA TECH;1rPMKEA;Santé
+MAUREL & PROM;1rPMAU;Pétrole et gaz
+MERCIALYS;1rPMERY;Sociétés financières
+MERSEN;1rPMRN;Industries
+METABOLIC EXPLORER;1rPMETEX;Matériaux de base
+MICHELIN;1rPML;Biens de consommation
+NANOBIOTIX;1rPNANO;Santé
+NEXANS;1rPNEX;Industries
+NEXITY;1rPNXI;Sociétés financières
+NICOX;1rPCOX;Santé
+NOKIA;1rPNOKIA;Technologies
+OENEO;1rPSBT;Industries
+ONXEO;1rPALONX;Santé
+ORANGE;1rPORA;Télécommunications
+ORPEA;1rPORP;Santé
+PERNOD RICARD;1rPRI;Biens de consommation
+PEUGEOT INVEST;1rPPEUG;Sociétés financières
+PHARMAGEST INTERACT;1rPPHA;Technologies
+PIERRE ET VACANCES;1rPVAC;Services aux consommateurs
+PLASTIC OMNIUM;1rPPOM;Biens de consommation
+PLASTiVALOIRE;1rPPVL;Matériaux de base
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+PROLOGUE;1rPPROL;Technologies
+PUBLICIS GROUPE;1rPPUB;Services aux consommateurs
+QUADIENT;1rPQDT;Technologies
+RALLYE;1rPRAL;Services aux consommateurs
+<<<<<<< HEAD:listeSymboles.txt
+RAMSAY GENERALE;1rPGDS;Sant�
+REMY COINTREAU;1rPRCO;Biens de consommation
+RENAULT;1rPRNO;Biens de consommation
+REXEL;1rPRXL;Industries
+ROTHSCHILD & CO;1rPROTH;Soci�t�s financi�res
+RUBIS;1rPRUI;Services aux collectivit�s
+SAFRAN;1rPSAF;Industries
+SAINT-GOBAIN;1rPSGO;Industries
+SANOFI;1rPSAN;Sant�
+SARTORIUS STEDIM BIOTECH;1rPDIM;Sant�
+SAVENCIA;1rPSAVE;Biens de consommation
+SCHLUMBERGER;1rPSLB;P�trole et gaz
+SCHNEIDER ELECTRIC;1rPSU;Industries
+SCOR;1rPSCR;Soci�t�s financi�res
+=======
+RAMSAY GENERALE;1rPGDS;Santé
+REMY COINTREAU;1rPRCO;Biens de consommation
+RENAULT;1rPRNO;Biens de consommation
+REXEL;1rPRXL;Industries
+ROTHSCHILD & CO;1rPROTH;Sociétés financières
+RUBIS;1rPRUI;Services aux collectivités
+SAFRAN;1rPSAF;Industries
+SAINT-GOBAIN;1rPSGO;Industries
+SANOFI;1rPSAN;Santé
+SARTORIUS STEDIM BIOTECH;1rPDIM;Santé
+SAVENCIA;1rPSAVE;Biens de consommation
+SCHLUMBERGER;1rPSLB;Pétrole et gaz
+SCHNEIDER ELECTRIC;1rPSU;Industries
+SCOR;1rPSCR;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+SEB;1rPSK;Biens de consommation
+SECHE ENVIRON;1rPSCHP;Industries
+SES;1rPSESG;Services aux consommateurs
+SES IMAGOTAG;1rPSESL;Industries
+<<<<<<< HEAD:listeSymboles.txt
+SOCIETE GENERALE;1rPGLE;Soci�t�s financi�res
+=======
+SOCIETE GENERALE;1rPGLE;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+SODEXO;1rPSW;Services aux consommateurs
+SOITEC;1rPSOI;Technologies
+SOLOCAL GROUP;1rPLOCAL;Services aux consommateurs
+SOLUTIONS 30;1rPS30;Technologies
+SOPRA STERIA;1rPSOP;Technologies
+SPIE;1rPSPIE;Industries
+SQLI;1rPSQI;Technologies
+STEF;1rPSTF;Industries
+STELLANTIS;1rPSTLA;Biens de consommation
+STMICROELECTRONICS;1rPSTM;Technologies
+<<<<<<< HEAD:listeSymboles.txt
+SUEZ;1rPSEV;Services aux collectivit�s
+SWORD GROUP;1rPSWP;Technologies
+SYNERGIE;1rPSDG;Industries
+TECHNIPFMC;1rPFTI;P�trole et gaz
+=======
+SUEZ;1rPSEV;Services aux collectivités
+SWORD GROUP;1rPSWP;Technologies
+SYNERGIE;1rPSDG;Industries
+TECHNIPFMC;1rPFTI;Pétrole et gaz
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+TELEPERFORMANCE;1rPTEP;Industries
+TF1;1rPTFI;Services aux consommateurs
+TFF GROUP;1rPTFF;Industries
+THALES;1rPHO;Industries
+<<<<<<< HEAD:listeSymboles.txt
+TOTALENERGIES;1rPTTE;P�trole et gaz
+TOUR EIFFEL;1rPEIFF;Soci�t�s financi�res
+TRANSGENE;1rPTNG;Sant�
+=======
+TOTALENERGIES;1rPTTE;Pétrole et gaz
+TOUR EIFFEL;1rPEIFF;Sociétés financières
+TRANSGENE;1rPTNG;Santé
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+TRIGANO;1rPTRI;Biens de consommation
+UBISOFT ENTERTAIN.;1rPUBI;Biens de consommation
+VALEO;1rPFR;Biens de consommation
+VALLOUREC;1rPVK;Industries
+<<<<<<< HEAD:listeSymboles.txt
+VALNEVA;1rPVLA;Sant�
+VEOLIA;1rPVIE;Services aux collectivit�s
+=======
+VALNEVA;1rPVLA;Santé
+VEOLIA;1rPVIE;Services aux collectivités
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+VERIMATRIX;1rPVMX;Technologies
+VICAT;1rPVCT;Industries
+VILMORIN & CIE;1rPRIN;Biens de consommation
+VINCI;1rPDG;Industries
+<<<<<<< HEAD:listeSymboles.txt
+VIRBAC;1rPVIRP;Sant�
+VIVENDI;1rPVIV;Services aux consommateurs
+VOLTALIA;1rPVLTSA;Services aux collectivit�s
+VRANKEN-POMMERY MO.;1rPVRAP;Biens de consommation
+WAVESTONE;1rPWAVE;Technologies
+WENDEL;1rPMF;Soci�t�s financi�res
+=======
+VIRBAC;1rPVIRP;Santé
+VIVENDI;1rPVIV;Services aux consommateurs
+VOLTALIA;1rPVLTSA;Services aux collectivités
+VRANKEN-POMMERY MO.;1rPVRAP;Biens de consommation
+WAVESTONE;1rPWAVE;Technologies
+WENDEL;1rPMF;Sociétés financières
+>>>>>>> 7c8ae2fba8c22f6bc2364da36ffbc18edc360a6f:ListeSymboles.txt
+WORLDLINE;1rPWLN;Industries
