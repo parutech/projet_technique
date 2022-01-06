@@ -115,52 +115,56 @@ def CreerDonneesBilan() :
     with open('listeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
-                hrefcut = line.strip().split(';')[1]
-                hreftxt = os.getcwd() + '\\data\\' + hrefcut + '\\' + 'bilan.txt'
+            symbole = line.strip().split(';')[1]
+            hreftxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
-                newurl = (
-                'https://www.boursorama.com/cours/societe/chiffres-cles/' + hrefcut + '/')
+            newurl = (
+            'https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
 
-                newresponse = requests.get(newurl)
-                soup2 = BeautifulSoup(newresponse.text, 'lxml')
-                lignesTableau = soup2.findAll(
-                'tr', {'class': 'c-table__row'})
+            newresponse = requests.get(newurl)
+            soup2 = BeautifulSoup(newresponse.text, 'lxml')
+            lignesTableau = soup2.findAll('tr', {'class': 'c-table__row'})
 
-                with open(hreftxt, 'a') as file:
-                        for ligne in lignesTableau:
-                                # print(ligne)
-                                nombres = ligne.findAll('div')
-                                for nombre in nombres:
-                                        (nombre.text.strip())
-                                        file.write(nombre.text.strip() + ';')
-                                file.write('\n')
+            with open(hreftxt, 'a') as file:
+                for ligne in lignesTableau:
+                    nombres = ligne.findAll('div')
+                    for nombre in nombres:
+                        (nombre.text.strip())
+                        file.write(nombre.text.strip() + ';')
+                    file.write('\n')
 
-                with open(hreftxt, 'r') as file:
-                        lines = file.readlines()
-                        for line in lines:
-                                if 'Trésorerie' in line:
-                                        treso = line
-                                if "Chiffre d'affaires de l'année" in line:
-                                        ca = line
-                                if 'Résultat net' in line:
-                                        resunet = line
-                                if 'Résultat opérationnel' in line:
-                                        resuope = line
-                                if 'Résultat net part du groupe dilué par action' in line:
-                                        resunetact = line
-                                if 'Rentabilité financière' in line:
-                                        rentafinance = line
-                                if "Ratio d'endettement" in line:
-                                        ratiod = line
+            with open(hreftxt, 'r') as file:
+                lines = file.readlines()
+                for line in lines:
+                    if 'Trésorerie' in line:
+                        treso = line
+                    if "Chiffre d'affaires de l'année" in line:
+                        ca = line
+                    if 'Résultat net' in line:
+                        resunet = line
+                    if 'Résultat opérationnel' in line:
+                        resuope = line
+                    if 'Résultat net part du groupe dilué par action' in line:
+                        resunetact = line
+                    if 'Rentabilité financière' in line:
+                        rentafinance = line
+                    if "Ratio d'endettement" in line:
+                        ratiod = line
+                    if 'Total actif' in line:
+                        totalactif = line
+                    if "Effectif en fin d'année" in line :
+                        effectif = line
 
-                with open (hreftxt,'w') as file:
-                        file.write(ca)
-                        file.write(treso)
-                        file.write(resunet)
-                        file.write(resuope)
-                        file.write(resunetact)
-                        file.write(rentafinance)
-                        file.write(ratiod)
-                        print(hrefcut)
+            with open (hreftxt,'w') as file:
+                file.write(ca)
+                file.write(treso)
+                file.write(resunet)
+                file.write(resuope)
+                file.write(resunetact)
+                file.write(rentafinance)
+                file.write(ratiod)
+                file.write(totalactif)
+                file.write(effectif)
+                print(symbole)
 
 CreerDonneesBilan()

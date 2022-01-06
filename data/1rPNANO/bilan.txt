@@ -5,3 +5,5 @@ Résultat opérationnel;-25 267;-30 067;-46 779;-36 428;
 Résultat net part du groupe dilué par action (en €);-1.43;-1.5;-1.55;-2.35;-1.38;
 Rentabilité financière (en %);-125.77;-59.52;-213.05;2668.5;-47.67;
 Ratio d'endettement;-88.46;-96.72;-110.12;-494.34;-99.58;
+Total actif;30 403;57 467;46 195;56 205;134 030;
+Effectif en fin d'année;67;85;102;110;90;
