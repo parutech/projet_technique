@@ -109,6 +109,16 @@ def CreerDonneesSimulation() :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
 
+# Récupération des données pour la simulation (2016-2019)
+def CreerDonneesHistoriques() :
+    with open('listeSymboles.txt', 'r') as file :
+        lines = file.readlines()
+        for line in lines :
+            symbole = line.strip().split(';')[1]
+            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2016_3Y.txt') == False) :
+                CreerValeursHistoriques(symbole, '01/01/2016', '3Y')
+
+
 # Récupération des données de bilan d'entreprise
 def CreerDonneesBilan() :
     with open('listeSymboles.txt', 'r') as file :
