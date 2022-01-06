@@ -107,9 +107,6 @@ def CreerDonneesSimulation() :
             symbole = line.strip().split(';')[1]
             if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt') == False) :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
-                print(symbole)
-            else :
-                print(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt already exists!')
 
 
 # Récupération des données de bilan d'entreprise
