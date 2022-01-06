@@ -109,7 +109,7 @@ def CreerDonneesSimulation() :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
 
-# Récupération des données pour la simulation (2016-2019)
+# Récupération des données historiques (2016-2019)
 def CreerDonneesHistoriques() :
     with open('listeSymboles.txt', 'r') as file :
         lines = file.readlines()
