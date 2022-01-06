@@ -127,8 +127,7 @@ def CreerDonneesBilan() :
             symbole = line.strip().split(';')[1]
             hreftxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
-            newurl = (
-            'https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
+            newurl = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
 
             newresponse = requests.get(newurl)
             soup2 = BeautifulSoup(newresponse.text, 'lxml')
@@ -140,6 +139,21 @@ def CreerDonneesBilan() :
                     for nombre in nombres:
                         (nombre.text.strip())
                         file.write(nombre.text.strip() + ';')
+                    file.write('\n')
+
+            newurl = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')
+
+            newresponse = requests.get(newurl)
+            soup2 = BeautifulSoup(newresponse.text, 'lxml')
+            lignesTableau = soup2.findAll('tr', {'class': 'c-table__row c-table-evolution__row-top'})
+
+            with open(hreftxt, 'a') as file:
+                for ligne in lignesTableau:
+                    nombres = ligne.findAll('td')
+                    for nombre in nombres:
+                        nombrestr = str(nombre)
+                        nombrestr = nombrestr.split('>')[1].split('<')[0].strip()
+                        file.write(nombrestr + ';')
                     file.write('\n')
 
             with open(hreftxt, 'r') as file:
@@ -163,6 +177,12 @@ def CreerDonneesBilan() :
                         totalactif = line
                     if "Effectif en fin d'année" in line :
                         effectif = line
+                    if 'EBITDA' in line:
+                        ebitda = line
+                    if 'PER' in line:
+                        per = line
+                    if 'Bénéfice net par action' in line:
+                        benef = line
 
             with open (hreftxt,'w') as file:
                 file.write(ca)
@@ -174,3 +194,6 @@ def CreerDonneesBilan() :
                 file.write(ratiod)
                 file.write(totalactif)
                 file.write(effectif)
+                file.write(ebitda)
+                file.write(per)
+                file.write(benef)

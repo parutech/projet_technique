@@ -2,4 +2,4 @@
 
 import WebScraping
 
-WebScraping.CreerListeSymboles()
+WebScraping.CreerDonneesBilan()

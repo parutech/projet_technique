@@ -7,3 +7,6 @@ Rentabilité financière (en %);7.36;-0.34;-16.73;-31.89;-75.55;
 Ratio d'endettement;-73.68;-19.76;-9.71;3.15;7.09;
 Total actif;17 675 026;23 705 692;22 008 935;21 051 917;16 130 130;
 Effectif en fin d'année;44 000;41 013;37 000;37 167;37 966;
+EBITDA;519;567;684;
+PER;0.00;34.37;14.97;
+Bénéfice net par action;-0.12;0.15;0.35;
