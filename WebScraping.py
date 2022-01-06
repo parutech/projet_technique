@@ -118,16 +118,14 @@ def CreerDonneesBilan() :
                 hrefcut = line.strip().split(';')[1]
                 hreftxt = os.getcwd() + '\\data\\' + hrefcut + '\\' + 'bilan.txt'
 
-                # print(hrefcut)
                 newurl = (
                 'https://www.boursorama.com/cours/societe/chiffres-cles/' + hrefcut + '/')
-                # print(newurl)
+
                 newresponse = requests.get(newurl)
                 soup2 = BeautifulSoup(newresponse.text, 'lxml')
                 lignesTableau = soup2.findAll(
                 'tr', {'class': 'c-table__row'})
 
-                # print(lignesTableau)
                 with open(hreftxt, 'a') as file:
                         for ligne in lignesTableau:
                                 # print(ligne)
@@ -139,12 +137,10 @@ def CreerDonneesBilan() :
 
                 with open(hreftxt, 'r') as file:
                         lines = file.readlines()
-                        caname = "Chiffre d'affaires de l'année"
-                        ratiodette = "Ratio d'endettement"
                         for line in lines:
                                 if 'Trésorerie' in line:
                                         treso = line
-                                if caname in line:
+                                if "Chiffre d'affaires de l'année" in line:
                                         ca = line
                                 if 'Résultat net' in line:
                                         resunet = line
@@ -154,7 +150,7 @@ def CreerDonneesBilan() :
                                         resunetact = line
                                 if 'Rentabilité financière' in line:
                                         rentafinance = line
-                                if ratiodette in line:
+                                if "Ratio d'endettement" in line:
                                         ratiod = line
 
                 with open (hreftxt,'w') as file:
