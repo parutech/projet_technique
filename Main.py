@@ -5,7 +5,7 @@ import WebScraping
 #import AnalyseTechnique
 #import Application
 
-#WebScraping.CreerListeSymboles()
+WebScraping.CreerListeSymboles()
 #WebScraping.CreerDonneesSimulation()
 #WebScraping.CreerDonneesHistoriques()
 #WebScraping.CreerDonneesBilan()
