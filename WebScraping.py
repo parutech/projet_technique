@@ -167,6 +167,3 @@ def CreerDonneesBilan() :
                 file.write(ratiod)
                 file.write(totalactif)
                 file.write(effectif)
-                print(symbole)
-
-CreerDonneesBilan()
