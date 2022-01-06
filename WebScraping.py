@@ -56,11 +56,11 @@ def CreerListeSymboles() :
                             print(nomAction + ';' + symbole + ';' + secteurs[symbole])
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
                         else :
-                            lienSecteurList = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
-                            if (len(lienSecteurList) != 0) :
-                                numeroSecteurList = lienSecteurList[0]['href'].split('industry%5D=')
-                                if (len(numeroSecteurList) == 2) :
-                                    numeroSecteur = numeroSecteurList[1].split('&filter')[0]
+                            lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
+                            if (len(lienSecteurListe) != 0) :
+                                numeroSecteurListe = lienSecteurListe[0]['href'].split('industry%5D=')
+                                if (len(numeroSecteurListe) == 2) :
+                                    numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
                                     print(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)])
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
 
@@ -105,6 +105,7 @@ def CreerDonneesSimulation() :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
+            print(symbole)
             if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt') == False) :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
@@ -115,6 +116,7 @@ def CreerDonneesHistoriques() :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
+            print(symbole)
             if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2016_3Y.txt') == False) :
                 CreerValeursHistoriques(symbole, '01/01/2016', '3Y')
 
@@ -125,15 +127,16 @@ def CreerDonneesBilan() :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            hreftxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
+            print(symbole)
+            bilantxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
-            newurl = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
+            url = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
 
-            newresponse = requests.get(newurl)
-            soup2 = BeautifulSoup(newresponse.text, 'lxml')
-            lignesTableau = soup2.findAll('tr', {'class': 'c-table__row'})
+            response = requests.get(url)
+            soup = BeautifulSoup(response.text, 'lxml')
+            lignesTableau = soup.findAll('tr', {'class': 'c-table__row'})
 
-            with open(hreftxt, 'a') as file:
+            with open(bilantxt, 'a') as file:
                 for ligne in lignesTableau:
                     nombres = ligne.findAll('div')
                     for nombre in nombres:
@@ -141,22 +144,7 @@ def CreerDonneesBilan() :
                         file.write(nombre.text.strip() + ';')
                     file.write('\n')
 
-            newurl = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')
-
-            newresponse = requests.get(newurl)
-            soup2 = BeautifulSoup(newresponse.text, 'lxml')
-            lignesTableau = soup2.findAll('tr', {'class': 'c-table__row c-table-evolution__row-top'})
-
-            with open(hreftxt, 'a') as file:
-                for ligne in lignesTableau:
-                    nombres = ligne.findAll('td')
-                    for nombre in nombres:
-                        nombrestr = str(nombre)
-                        nombrestr = nombrestr.split('>')[1].split('<')[0].strip()
-                        file.write(nombrestr + ';')
-                    file.write('\n')
-
-            with open(hreftxt, 'r') as file:
+            with open(bilantxt, 'r') as file:
                 lines = file.readlines()
                 for line in lines:
                     if 'Trésorerie' in line:
@@ -177,14 +165,8 @@ def CreerDonneesBilan() :
                         totalactif = line
                     if "Effectif en fin d'année" in line :
                         effectif = line
-                    if 'EBITDA' in line:
-                        ebitda = line
-                    if 'PER' in line:
-                        per = line
-                    if 'Bénéfice net par action' in line:
-                        benef = line
 
-            with open (hreftxt,'w') as file:
+            with open (bilantxt, 'w') as file:
                 file.write(ca)
                 file.write(treso)
                 file.write(resunet)
@@ -194,6 +176,42 @@ def CreerDonneesBilan() :
                 file.write(ratiod)
                 file.write(totalactif)
                 file.write(effectif)
+
+
+# Récupérer les données d'estimation de l'entreprise
+def CreerDonneesEstimation() :
+    with open('listeSymboles.txt', 'r') as file :
+        lines = file.readlines()
+        for line in lines :
+            symbole = line.strip().split(';')[1]
+            estimationstxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'estimations.txt'
+
+            url = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')
+
+            response = requests.get(url)
+            soup = BeautifulSoup(response.text, 'lxml')
+            lignesTableau = soup.findAll('tr', {'class': 'c-table__row c-table-evolution__row-top'})
+
+            with open(estimationstxt, 'a') as file:
+                for ligne in lignesTableau:
+                    nombres = ligne.findAll('td')
+                    for nombre in nombres:
+                        nombrestr = str(nombre)
+                        nombrestr = nombrestr.split('>')[1].split('<')[0].strip()
+                        file.write(nombrestr + ';')
+                    file.write('\n')
+
+            with open(estimationstxt, 'r') as file:
+                lines = file.readlines()
+                for line in lines:
+                    if 'EBITDA' in line:
+                        ebitda = line
+                    if 'PER' in line:
+                        per = line
+                    if 'Bénéfice net par action' in line:
+                        benef = line
+
+            with open (estimationstxt, 'w') as file:
                 file.write(ebitda)
                 file.write(per)
                 file.write(benef)

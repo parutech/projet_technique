@@ -1,0 +1,3 @@
+EBITDA;55;65;71;
+PER;8.96;7.36;6.57;
+Bénéfice net par action;4.13;5.03;5.63;
