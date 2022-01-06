@@ -15,8 +15,8 @@ secteurs = {
     '7' : 'Services aux collectivités',
     '8' : 'Sociétés financières',
     '9' : 'Technologies',
-    '1rPAIR' : 'Aviation',
-    '1rPAM' : 'Aviation',
+    '1rPAIR' : 'Industries',
+    '1rPAM' : 'Technologies',
     '1rPGNE' : 'Energie',
     '1rPJCQ' : 'Matériaux de base'
 }
@@ -35,7 +35,7 @@ def CreerListeSymboles() :
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1])
 
-    with open('listeSymboles.txt', 'w') as file :
+    with open('ListeSymboles.txt', 'w') as file :
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i))
             if (reponse.ok) :
@@ -53,7 +53,6 @@ def CreerListeSymboles() :
                         soup = BeautifulSoup(reponse.text, 'lxml')
                         if symbole in symbolesIncomplets :
                             secteur = secteurs[symbole]
-                            print(nomAction + ';' + symbole + ';' + secteurs[symbole])
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
                         else :
                             lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
@@ -61,7 +60,6 @@ def CreerListeSymboles() :
                                 numeroSecteurListe = lienSecteurListe[0]['href'].split('industry%5D=')
                                 if (len(numeroSecteurListe) == 2) :
                                     numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
-                                    print(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)])
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
 
 
@@ -101,18 +99,17 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
 
 # Récupération des données pour la simulation (2019-2021)
 def CreerDonneesSimulation() :
-    with open('listeSymboles.txt', 'r') as file :
+    with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            print(symbole)
             if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt') == False) :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
 
 # Récupération des données historiques (2016-2019)
 def CreerDonneesHistoriques() :
-    with open('listeSymboles.txt', 'r') as file :
+    with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
@@ -123,11 +120,10 @@ def CreerDonneesHistoriques() :
 
 # Récupération des données de bilan d'entreprise
 def CreerDonneesBilan() :
-    with open('listeSymboles.txt', 'r') as file :
+    with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
-            symbole = line.strip().split(';')[1]
-            print(symbole)
+            symbole = line.strip().split(';')[1] 
             bilantxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
             url = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
@@ -180,7 +176,7 @@ def CreerDonneesBilan() :
 
 # Récupérer les données d'estimation de l'entreprise
 def CreerDonneesEstimation() :
-    with open('listeSymboles.txt', 'r') as file :
+    with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]

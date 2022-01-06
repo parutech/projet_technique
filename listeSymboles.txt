@@ -1,106 +1,106 @@
-AB SCIENCE;1rPAB;Santé
-ABC ARBITRAGE;1rPABCA;Sociétés financières
+AB SCIENCE;1rPAB;Santï¿½
+ABC ARBITRAGE;1rPABCA;Sociï¿½tï¿½s financiï¿½res
 ACCOR;1rPAC;Services aux consommateurs
 ACTIA GROUP;1rPATI;Industries
-ADOCIA;1rPADOC;Santé
+ADOCIA;1rPADOC;Santï¿½
 ADP;1rPADP;Industries
 AIR FRANCE-KLM;1rPAF;Services aux consommateurs
-AIR LIQUIDE;1rPAI;Matériaux de base
-AIRBUS;1rPAIR;Aviation
+AIR LIQUIDE;1rPAI;Matï¿½riaux de base
+AIRBUS;1rPAIR;Industries
 AKKA TECHNOLOGIES;1rPAKA;Industries
 AKWEL;1rPAKW;Biens de consommation
-ALBIOMA;1rPABIO;Services aux collectivités
+ALBIOMA;1rPABIO;Services aux collectivitï¿½s
 ALD;1rPALD;Services aux consommateurs
 ALSTOM;1rPALO;Industries
-ALTAMIR;1rPLTA;Sociétés financières
-ALTAREA;1rPALTA;Sociétés financières
+ALTAMIR;1rPLTA;Sociï¿½tï¿½s financiï¿½res
+ALTAREA;1rPALTA;Sociï¿½tï¿½s financiï¿½res
 ALTEN;1rPATE;Technologies
 ARCHOS;1rPALJXR;Biens de consommation
-ARGAN;1rPARG;Sociétés financières
-ARKEMA;1rPAKE;Matériaux de base
+ARGAN;1rPARG;Sociï¿½tï¿½s financiï¿½res
+ARKEMA;1rPAKE;Matï¿½riaux de base
 ARTMARKET.COM;1rPPRC;Services aux consommateurs
 ASSYSTEM;1rPASY;Industries
 ATARI;1rPATA;Biens de consommation
 ATOS;1rPATO;Technologies
 AUBAY;1rPAUB;Technologies
-AXA;1rPCS;Sociétés financières
+AXA;1rPCS;Sociï¿½tï¿½s financiï¿½res
 AXWAY SOFTWARE;1rPAXW;Technologies
 BENETEAU;1rPBEN;Biens de consommation
 BIC;1rPBB;Biens de consommation
 BIGBEN INTERACTIVE;1rPBIG;Biens de consommation
-BIOMERIEUX;1rPBIM;Santé
-BNP PARIBAS;1rPBNP;Sociétés financières
-BOIRON;1rPBOI;Santé
+BIOMERIEUX;1rPBIM;Santï¿½
+BNP PARIBAS;1rPBNP;Sociï¿½tï¿½s financiï¿½res
+BOIRON;1rPBOI;Santï¿½
 BOLLORE;1rPBOL;Industries
 BONDUELLE;1rPBON;Biens de consommation
 BOUYGUES;1rPEN;Industries
 BUREAU VERITAS;1rPBVI;Industries
 CAPGEMINI;1rPCAP;Technologies
-CARMILA;1rPCARM;Sociétés financières
+CARMILA;1rPCARM;Sociï¿½tï¿½s financiï¿½res
 CARREFOUR;1rPCA;Services aux consommateurs
 CASINO GUICHARD PERRACHON;1rPCO;Services aux consommateurs
 CATERING INTL CIS;1rPCTRG;Industries
 CEGEDIM;1rPCGM;Technologies
-CGG;1rPCGG;Pétrole et gaz
+CGG;1rPCGG;Pï¿½trole et gaz
 CHARGEURS;1rPCRI;Biens de consommation
 CHRISTIAN DIOR;1rPCDI;Biens de consommation
 CIE DES ALPES;1rPCDA;Services aux consommateurs
 CLARANOVA SE;1rPCLA;Technologies
 CNIM GROUP;1rPCOM;Industries
-CNP ASSURANCES;1rPCNP;Sociétés financières
-COFACE;1rPCOFA;Sociétés financières
+CNP ASSURANCES;1rPCNP;Sociï¿½tï¿½s financiï¿½res
+COFACE;1rPCOFA;Sociï¿½tï¿½s financiï¿½res
 COLAS;1rPRE;Industries
 COMP DE L'ODET;1rPODET;Industries
-COVIVIO;1rPCOV;Sociétés financières
-CREDIT AGRICOLE SA;1rPACA;Sociétés financières
+COVIVIO;1rPCOV;Sociï¿½tï¿½s financiï¿½res
+CREDIT AGRICOLE SA;1rPACA;Sociï¿½tï¿½s financiï¿½res
 CRIT;1rPCEN;Industries
 DANONE;1rPBN;Biens de consommation
 DASSAULT AVIATION;1rPAM;Aviation
 DASSAULT SYSTEMES;1rPDSY;Technologies
-DBV TECHNOLOGIES;1rPDBV;Santé
-DMS;1rPDGM;Santé
+DBV TECHNOLOGIES;1rPDBV;Santï¿½
+DMS;1rPDGM;Santï¿½
 EDENRED;1rPEDEN;Industries
-EDF;1rPEDF;Services aux collectivités
+EDF;1rPEDF;Services aux collectivitï¿½s
 EIFFAGE;1rPFGR;Industries
 EKINOPS;1rPEKI;Industries
 ELIOR GROUP;1rPELIOR;Services aux consommateurs
-ENGIE;1rPENGI;Services aux collectivités
-ERAMET;1rPERA;Matériaux de base
-ERYTECH PHARMA;1rPERYP;Santé
-ESSILORLUXOTTICA;1rPEL;Santé
-ESSO;1rPES;Pétrole et gaz
+ENGIE;1rPENGI;Services aux collectivitï¿½s
+ERAMET;1rPERA;Matï¿½riaux de base
+ERYTECH PHARMA;1rPERYP;Santï¿½
+ESSILORLUXOTTICA;1rPEL;Santï¿½
+ESSO;1rPES;Pï¿½trole et gaz
 EURAZEO;1rPRF;Industries
-EUROFINS SCIENTIFIC;1rPERF;Santé
-EURONEXT;1rPENX;Sociétés financières
+EUROFINS SCIENTIFIC;1rPERF;Santï¿½
+EURONEXT;1rPENX;Sociï¿½tï¿½s financiï¿½res
 EUROPCAR MOBILITY GRP;1rPEUCAR;Services aux consommateurs
 EUTELSAT COMMUNIC.;1rPETL;Services aux consommateurs
 EXEL INDUSTRIES A;1rPEXE;Industries
 FAURECIA;1rPEO;Biens de consommation
 FDJ;1rPFDJ;Services aux consommateurs
 FNAC DARTY;1rPFNAC;Services aux consommateurs
-GECINA;1rPGFC;Sociétés financières
+GECINA;1rPGFC;Sociï¿½tï¿½s financiï¿½res
 GENERAL ELECTRIC;1rPGNE;Energie
-GENFIT;1rPGNFT;Santé
+GENFIT;1rPGNFT;Santï¿½
 GETLINK (ex: EUROTUNNEL);1rPGET;Industries
 GL EVENTS;1rPGLO;Industries
 GROUPE GORGE;1rPGOE;Industries
-GTT (GAZTRANSPORT ET TEC.);1rPGTT;Pétrole et gaz
+GTT (GAZTRANSPORT ET TEC.);1rPGTT;Pï¿½trole et gaz
 HAULOTTE GROUP;1rPPIG;Industries
 HERMES INTL;1rPRMS;Biens de consommation
 HEXAOM;1rPHEXA;Biens de consommation
 HOLCIM;1rPHOLN;Industries
-ICADE;1rPICAD;Sociétés financières
+ICADE;1rPICAD;Sociï¿½tï¿½s financiï¿½res
 ID LOGISTICS;1rPIDL;Industries
-IMERYS;1rPNK;Matériaux de base
-INNATE PHARMA;1rPIPH;Santé
+IMERYS;1rPNK;Matï¿½riaux de base
+INNATE PHARMA;1rPIPH;Santï¿½
 INTERPARFUMS;1rPITP;Biens de consommation
-IPSEN;1rPIPN;Santé
+IPSEN;1rPIPN;Santï¿½
 IPSOS;1rPIPS;Services aux consommateurs
-JACQUET METALS;1rPJCQ;Matériaux de base
+JACQUET METALS;1rPJCQ;Matï¿½riaux de base
 JCDECAUX SA.;1rPDEC;Services aux consommateurs
 KERING;1rPKER;Services aux consommateurs
-KLEPIERRE;1rPLI;Sociétés financières
-KORIAN;1rPKORI;Santé
+KLEPIERRE;1rPLI;Sociï¿½tï¿½s financiï¿½res
+KORIAN;1rPKORI;Santï¿½
 L'OREAL;1rPOR;Biens de consommation
 LAGARDERE SA;1rPMMB;Services aux consommateurs
 LATECOERE;1rPLAT;Industries
@@ -108,58 +108,58 @@ LAURENT PERRIER;1rPLPE;Biens de consommation
 LECTRA;1rPLSS;Technologies
 LEGRAND;1rPLR;Industries
 LISI;1rPFII;Industries
-LNA SANTE;1rPLNA;Santé
-LUMIBIRD;1rPLBIRD;Santé
+LNA SANTE;1rPLNA;Santï¿½
+LUMIBIRD;1rPLBIRD;Santï¿½
 LVMH;1rPMC;Biens de consommation
 M6 METROPOLE TELE.;1rPMMT;Services aux consommateurs
 MANITOU BF;1rPMTU;Industries
 MANUTAN INTL;1rPMAN;Industries
 MARIE BRIZARD;1rPMBWS;Biens de consommation
-MAROC TELECOM;1rPIAM;Télécommunications
-MAUNA KEA TECH;1rPMKEA;Santé
-MAUREL & PROM;1rPMAU;Pétrole et gaz
-MERCIALYS;1rPMERY;Sociétés financières
+MAROC TELECOM;1rPIAM;Tï¿½lï¿½communications
+MAUNA KEA TECH;1rPMKEA;Santï¿½
+MAUREL & PROM;1rPMAU;Pï¿½trole et gaz
+MERCIALYS;1rPMERY;Sociï¿½tï¿½s financiï¿½res
 MERSEN;1rPMRN;Industries
-METABOLIC EXPLORER;1rPMETEX;Matériaux de base
+METABOLIC EXPLORER;1rPMETEX;Matï¿½riaux de base
 MICHELIN;1rPML;Biens de consommation
-NANOBIOTIX;1rPNANO;Santé
+NANOBIOTIX;1rPNANO;Santï¿½
 NEXANS;1rPNEX;Industries
-NEXITY;1rPNXI;Sociétés financières
-NICOX;1rPCOX;Santé
+NEXITY;1rPNXI;Sociï¿½tï¿½s financiï¿½res
+NICOX;1rPCOX;Santï¿½
 NOKIA;1rPNOKIA;Technologies
 OENEO;1rPSBT;Industries
-ONXEO;1rPALONX;Santé
-ORANGE;1rPORA;Télécommunications
-ORPEA;1rPORP;Santé
+ONXEO;1rPALONX;Santï¿½
+ORANGE;1rPORA;Tï¿½lï¿½communications
+ORPEA;1rPORP;Santï¿½
 PERNOD RICARD;1rPRI;Biens de consommation
-PEUGEOT INVEST;1rPPEUG;Sociétés financières
+PEUGEOT INVEST;1rPPEUG;Sociï¿½tï¿½s financiï¿½res
 PHARMAGEST INTERACT;1rPPHA;Technologies
 PIERRE ET VACANCES;1rPVAC;Services aux consommateurs
 PLASTIC OMNIUM;1rPPOM;Biens de consommation
-PLASTiVALOIRE;1rPPVL;Matériaux de base
+PLASTiVALOIRE;1rPPVL;Matï¿½riaux de base
 PROLOGUE;1rPPROL;Technologies
 PUBLICIS GROUPE;1rPPUB;Services aux consommateurs
 QUADIENT;1rPQDT;Technologies
 RALLYE;1rPRAL;Services aux consommateurs
-RAMSAY GENERALE;1rPGDS;Santé
+RAMSAY GENERALE;1rPGDS;Santï¿½
 REMY COINTREAU;1rPRCO;Biens de consommation
 RENAULT;1rPRNO;Biens de consommation
 REXEL;1rPRXL;Industries
-ROTHSCHILD & CO;1rPROTH;Sociétés financières
-RUBIS;1rPRUI;Services aux collectivités
+ROTHSCHILD & CO;1rPROTH;Sociï¿½tï¿½s financiï¿½res
+RUBIS;1rPRUI;Services aux collectivitï¿½s
 SAFRAN;1rPSAF;Industries
 SAINT-GOBAIN;1rPSGO;Industries
-SANOFI;1rPSAN;Santé
-SARTORIUS STEDIM BIOTECH;1rPDIM;Santé
+SANOFI;1rPSAN;Santï¿½
+SARTORIUS STEDIM BIOTECH;1rPDIM;Santï¿½
 SAVENCIA;1rPSAVE;Biens de consommation
-SCHLUMBERGER;1rPSLB;Pétrole et gaz
+SCHLUMBERGER;1rPSLB;Pï¿½trole et gaz
 SCHNEIDER ELECTRIC;1rPSU;Industries
-SCOR;1rPSCR;Sociétés financières
+SCOR;1rPSCR;Sociï¿½tï¿½s financiï¿½res
 SEB;1rPSK;Biens de consommation
 SECHE ENVIRON;1rPSCHP;Industries
 SES;1rPSESG;Services aux consommateurs
 SES IMAGOTAG;1rPSESL;Industries
-SOCIETE GENERALE;1rPGLE;Sociétés financières
+SOCIETE GENERALE;1rPGLE;Sociï¿½tï¿½s financiï¿½res
 SODEXO;1rPSW;Services aux consommateurs
 SOITEC;1rPSOI;Technologies
 SOLOCAL GROUP;1rPLOCAL;Services aux consommateurs
@@ -170,31 +170,31 @@ SQLI;1rPSQI;Technologies
 STEF;1rPSTF;Industries
 STELLANTIS;1rPSTLA;Biens de consommation
 STMICROELECTRONICS;1rPSTM;Technologies
-SUEZ;1rPSEV;Services aux collectivités
+SUEZ;1rPSEV;Services aux collectivitï¿½s
 SWORD GROUP;1rPSWP;Technologies
 SYNERGIE;1rPSDG;Industries
-TECHNIPFMC;1rPFTI;Pétrole et gaz
+TECHNIPFMC;1rPFTI;Pï¿½trole et gaz
 TELEPERFORMANCE;1rPTEP;Industries
 TF1;1rPTFI;Services aux consommateurs
 TFF GROUP;1rPTFF;Industries
 THALES;1rPHO;Industries
-TOTALENERGIES;1rPTTE;Pétrole et gaz
-TOUR EIFFEL;1rPEIFF;Sociétés financières
-TRANSGENE;1rPTNG;Santé
+TOTALENERGIES;1rPTTE;Pï¿½trole et gaz
+TOUR EIFFEL;1rPEIFF;Sociï¿½tï¿½s financiï¿½res
+TRANSGENE;1rPTNG;Santï¿½
 TRIGANO;1rPTRI;Biens de consommation
 UBISOFT ENTERTAIN.;1rPUBI;Biens de consommation
 VALEO;1rPFR;Biens de consommation
 VALLOUREC;1rPVK;Industries
-VALNEVA;1rPVLA;Santé
-VEOLIA;1rPVIE;Services aux collectivités
+VALNEVA;1rPVLA;Santï¿½
+VEOLIA;1rPVIE;Services aux collectivitï¿½s
 VERIMATRIX;1rPVMX;Technologies
 VICAT;1rPVCT;Industries
 VILMORIN & CIE;1rPRIN;Biens de consommation
 VINCI;1rPDG;Industries
-VIRBAC;1rPVIRP;Santé
+VIRBAC;1rPVIRP;Santï¿½
 VIVENDI;1rPVIV;Services aux consommateurs
-VOLTALIA;1rPVLTSA;Services aux collectivités
+VOLTALIA;1rPVLTSA;Services aux collectivitï¿½s
 VRANKEN-POMMERY MO.;1rPVRAP;Biens de consommation
 WAVESTONE;1rPWAVE;Technologies
-WENDEL;1rPMF;Sociétés financières
+WENDEL;1rPMF;Sociï¿½tï¿½s financiï¿½res
 WORLDLINE;1rPWLN;Industries
