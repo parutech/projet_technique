@@ -1,0 +1,7 @@
+Chiffre d'affaires de l'année;1 322 100;1 421 400;1 456 100;1 273 600;0;
+Trésorerie et équivalents de trésorerie;174 400;54 300;132 800;45 900;197 000;
+Résultat net part du groupe dilué par action (en €);1.2;1.24;1.44;1.37;2.19;
+Résultat opérationnel;246 100;275 000;276 000;381 000;
+Résultat net part du groupe dilué par action (en €);1.2;1.24;1.44;1.37;2.19;
+Rentabilité financière (en %);24.8;23.92;25.37;22.34;25.9;
+Ratio d'endettement;-27.99;5.13;-11.29;19.19;-3.96;

@@ -2,6 +2,24 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
+symbolesIncomplets = ['1rPAIR', '1rPAM', '1rPGNE', '1rPJCQ']
+
+secteurs = {
+    '0' : 'Pétrole et gaz',
+    '1' : 'Matériaux de base',
+    '2' : 'Industries',
+    '3' : 'Biens de consommation',
+    '4' : 'Santé',
+    '5' : 'Services aux consommateurs',
+    '6' : 'Télécommunications',
+    '7' : 'Services aux collectivités',
+    '8' : 'Sociétés financières',
+    '9' : 'Technologies',
+    '1rPAIR' : 'Aviation',
+    '1rPAM' : 'Aviation',
+    '1rPGNE' : 'Energie',
+    '1rPJCQ' : 'Matériaux de base'
+}
 
 # Récupération de la liste de toutes les actions présentes sur Euronext Paris
 def CreerListeSymboles() :
@@ -31,11 +49,24 @@ def CreerListeSymboles() :
                     soup = BeautifulSoup(reponse.text, 'lxml')
                     alerte = soup.findAll('p', {'class' : 'c-alert__text'})
                     if (len(alerte) == 0) :
-                        file.write(nomAction + ';' + symbole + '\n')
+                        reponse = requests.get('https://www.boursorama.com/cours/' + symbole)
+                        soup = BeautifulSoup(reponse.text, 'lxml')
+                        if symbole in symbolesIncomplets :
+                            secteur = secteurs[symbole]
+                            print(nomAction + ';' + symbole + ';' + secteurs[symbole])
+                            file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
+                        else :
+                            lienSecteurList = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
+                            if (len(lienSecteurList) != 0) :
+                                numeroSecteurList = lienSecteurList[0]['href'].split('industry%5D=')
+                                if (len(numeroSecteurList) == 2) :
+                                    numeroSecteur = numeroSecteurList[1].split('&filter')[0]
+                                    print(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)])
+                                    file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
 
 
 # Récupération des valeurs historiques d'une action pour une période donnée
-def CreerValeursHistoriques(actionSymbole, dateDepart, duree) :
+def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
     baseUrl = 'https://www.boursorama.com/_formulaire-periode/page-'
     complementUrl = '?symbol=' + actionSymbole + '&historic_search[startDate]=' + dateDepart + '&historic_search[duration]=' + duree + '&historic_search[period]=1'
     nombrePages = 0
@@ -54,7 +85,7 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree) :
     if (os.path.exists(os.getcwd() + '\\data\\' + actionSymbole) == False) :
         os.mkdir(os.getcwd() + '\\data\\' + actionSymbole)
 
-    with open(nomFichier, 'w') as file :
+    with open(nomFichier, param) as file :
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i) + complementUrl)
             if (reponse.ok) :
@@ -73,7 +104,67 @@ def CreerDonneesSimulation() :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
+            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt') == False) :
+                CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
+                print(symbole)
+            else :
+                print(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt already exists!')
 
 
-CreerDonneesSimulation()
+def CreerDonneesBilan() :
+    with open('listeSymboles.txt', 'r') as file :
+        lines = file.readlines()
+        for line in lines :
+                hrefcut = line.strip().split(';')[1]
+                hreftxt = os.getcwd() + '\\data\\' + hrefcut + '\\' + 'bilan.txt'
+
+                # print(hrefcut)
+                newurl = (
+                'https://www.boursorama.com/cours/societe/chiffres-cles/' + hrefcut + '/')
+                # print(newurl)
+                newresponse = requests.get(newurl)
+                soup2 = BeautifulSoup(newresponse.text, 'lxml')
+                lignesTableau = soup2.findAll(
+                'tr', {'class': 'c-table__row'})
+
+                # print(lignesTableau)
+                with open(hreftxt, 'a') as file:
+                        for ligne in lignesTableau:
+                                # print(ligne)
+                                nombres = ligne.findAll('div')
+                                for nombre in nombres:
+                                        (nombre.text.strip())
+                                        file.write(nombre.text.strip() + ';')
+                                file.write('\n')
+
+                with open(hreftxt, 'r') as file:
+                        lines = file.readlines()
+                        caname = "Chiffre d'affaires de l'année"
+                        ratiodette = "Ratio d'endettement"
+                        for line in lines:
+                                if 'Trésorerie' in line:
+                                        treso = line
+                                if caname in line:
+                                        ca = line
+                                if 'Résultat net' in line:
+                                        resunet = line
+                                if 'Résultat opérationnel' in line:
+                                        resuope = line
+                                if 'Résultat net part du groupe dilué par action' in line:
+                                        resunetact = line
+                                if 'Rentabilité financière' in line:
+                                        rentafinance = line
+                                if ratiodette in line:
+                                        ratiod = line
+
+                with open (hreftxt,'w') as file:
+                        file.write(ca)
+                        file.write(treso)
+                        file.write(resunet)
+                        file.write(resuope)
+                        file.write(resunetact)
+                        file.write(rentafinance)
+                        file.write(ratiod)
+                        print(hrefcut)
+
+CreerDonneesBilan()
