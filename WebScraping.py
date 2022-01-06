@@ -99,6 +99,7 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
                     file.write(date + ';' + ouverture + ';' + cloture + '\n')
 
 
+# Récupération des données pour la simulation (2019-2021)
 def CreerDonneesSimulation() :
     with open('listeSymboles.txt', 'r') as file :
         lines = file.readlines()
@@ -111,6 +112,7 @@ def CreerDonneesSimulation() :
                 print(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt already exists!')
 
 
+# Récupération des données de bilan d'entreprise
 def CreerDonneesBilan() :
     with open('listeSymboles.txt', 'r') as file :
         lines = file.readlines()
