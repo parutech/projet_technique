@@ -1,4 +1,0 @@
-EBITDA;0;0;0;
-PER;0.00;0.00;0.00;
-Bénéfice net par action;0.00;0.00;0.00;
-Dette financière nette;0;0;0;

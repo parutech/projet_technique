@@ -15,7 +15,6 @@ ALSTOM;1rPALO;Industries
 ALTAMIR;1rPLTA;Sociétés financières
 ALTAREA;1rPALTA;Sociétés financières
 ALTEN;1rPATE;Technologies
-ARCHOS;1rPALJXR;Biens de consommation
 ARGAN;1rPARG;Sociétés financières
 ARKEMA;1rPAKE;Matériaux de base
 ARTMARKET.COM;1rPPRC;Services aux consommateurs

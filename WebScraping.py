@@ -91,9 +91,9 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
                 lignesTableau = soup.findAll('tr', {'class' : 'c-table__row'})
                 for ligne in lignesTableau :
                     colonnes = ligne.findAll('td')
-                    date = colonnes[0].text.strip()
-                    ouverture = colonnes[5].text.strip()
-                    cloture = colonnes[1].text.strip()
+                    date = colonnes[0].text.strip().replace(' ', '')
+                    ouverture = colonnes[5].text.strip().replace(' ', '')
+                    cloture = colonnes[1].text.strip().replace(' ', '')
                     file.write(date + ';' + ouverture + ';' + cloture + '\n')
 
 
@@ -107,13 +107,12 @@ def CreerDonneesSimulation() :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
 
-# Récupération des données historiques (3 dernières annnées)
+# Récupération des données historiques (3 années à partir de la date de départ)
 def CreerDonneesHistoriques(dateDepart) :
     with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            print(symbole)
             if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\' + dateDepart.replace('/', '-') + '_3Y.txt') == False) :
                 CreerValeursHistoriques(symbole, dateDepart, '3Y')
 

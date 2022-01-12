@@ -7,6 +7,6 @@ import WebScraping
 
 #WebScraping.CreerListeSymboles()
 #WebScraping.CreerDonneesSimulation()
-#WebScraping.CreerDonneesHistoriques()
-WebScraping.CreerDonneesBilan()
+#WebScraping.CreerDonneesHistoriques('01/01/2016')
+#WebScraping.CreerDonneesBilan()
 #WebScraping.CreerDonneesEstimation()
