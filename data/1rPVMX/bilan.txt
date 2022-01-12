@@ -1,9 +1,9 @@
-Chiffre d'affaires de l'année;38 816;42 080;98 159;94 893;0;
-Trésorerie et équivalents de trésorerie;25 703;38 297;41 425;48 198;39 583;
-Résultat net part du groupe dilué par action (en €);0.28;-0.02;0.03;0.32;-0.1;
-Résultat opérationnel;1 373;1 075;2 688;9 591;
-Résultat net part du groupe dilué par action (en €);0.28;-0.02;0.03;0.32;-0.1;
-Rentabilité financière (en %);19.39;-1.61;4.85;17.42;-7.06;
+Chiffre d'affaires de l'annÃ©e;38 816;42 080;98 159;94 893;0;
+TrÃ©sorerie et Ã©quivalents de trÃ©sorerie;25 703;38 297;41 425;48 198;39 583;
+RÃ©sultat net part du groupe diluÃ© par action (en â‚¬);0.28;-0.02;0.03;0.32;-0.1;
+RÃ©sultat opÃ©rationnel;1 373;1 075;2 688;9 591;
+RÃ©sultat net part du groupe diluÃ© par action (en â‚¬);0.28;-0.02;0.03;0.32;-0.1;
+RentabilitÃ© financiÃ¨re (en %);19.39;-1.61;4.85;17.42;-7.06;
 Ratio d'endettement;-41.28;-46.3;-46.3;12.55;17.11;
 Total actif;80 251;88 671;91 381;246 452;212 220;
-Effectif en fin d'année;158;165;163;283;283;
+Effectif en fin d'annÃ©e;158;165;163;283;283;

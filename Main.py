@@ -8,5 +8,5 @@ import WebScraping
 #WebScraping.CreerListeSymboles()
 #WebScraping.CreerDonneesSimulation()
 #WebScraping.CreerDonneesHistoriques()
-#WebScraping.CreerDonneesBilan()
-WebScraping.CreerDonneesEstimation()
+WebScraping.CreerDonneesBilan()
+#WebScraping.CreerDonneesEstimation()

@@ -4,7 +4,10 @@ import pandas
 
 def CalculerEMA(closingData, period) :
     listEMA = [0] * (period - 1)
-    
+    valueSMA = sum(closingData[:period])/period
+    listEMA.append(valueSMA)
+    print()
+    print(listEMA)
     pass
 
 
@@ -23,6 +26,8 @@ def CalculerScore(closingData, listPositions) :
 def AnalyserValeursHistoriques(symbol, dateStart) :
     filePath = os.getcwd() + '\\data\\' + symbol + '\\' + dateStart.replace('/', '-') + '_3Y.txt'
     dataFrame = pandas.read_csv(filePath, sep=';', names=['Date', 'Ouverture', 'Cloture'])[::-1]
+    #pandas.to_numeric(dataFrame['Ouverture'])
+    #pandas.to_numeric(dataFrame['Fermeture'])
 
     closingData = dataFrame['Cloture'].tolist()
     bestParameters = [0, 0, 0] # Période i, Période j, Score PTF
@@ -41,5 +46,6 @@ def AnalyserValeursHistoriques(symbol, dateStart) :
 
 #AnalyserValeursHistoriques('1rPAB', '01/01/2016')
 
-liste = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-print(liste[2:])
+liste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+CalculerEMA(liste, 4)
