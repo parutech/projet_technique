@@ -35,7 +35,7 @@ def CreerListeSymboles() :
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1])
 
-    with open('ListeSymboles.txt', 'w') as file :
+    with open('ListeSymboles.txt', 'w', encoding='utf8') as file :
         for i in range(1, nombrePages + 1) :
             reponse = requests.get(baseUrl + str(i))
             if (reponse.ok) :
@@ -53,6 +53,7 @@ def CreerListeSymboles() :
                         soup = BeautifulSoup(reponse.text, 'lxml')
                         if symbole in symbolesIncomplets :
                             secteur = secteurs[symbole]
+                            print(symbole)
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
                         else :
                             lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
@@ -60,6 +61,7 @@ def CreerListeSymboles() :
                                 numeroSecteurListe = lienSecteurListe[0]['href'].split('industry%5D=')
                                 if (len(numeroSecteurListe) == 2) :
                                     numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
+                                    print(symbole)
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
 
 
@@ -162,7 +164,7 @@ def CreerDonneesBilan() :
                     if "Effectif en fin d'année" in line :
                         effectif = line
 
-            with open (bilantxt, 'w') as file:
+            with open (bilantxt, 'w', encoding='utf8') as file:
                 file.write(ca)
                 file.write(treso)
                 file.write(resunet)
@@ -207,7 +209,7 @@ def CreerDonneesEstimation() :
                     if 'Bénéfice net par action' in line:
                         benef = line
 
-            with open (estimationstxt, 'w') as file:
+            with open (estimationstxt, 'w', encoding='utf8') as file:
                 file.write(ebitda)
                 file.write(per)
                 file.write(benef)
