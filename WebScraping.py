@@ -172,7 +172,6 @@ def CreerDonneesBilan() :
                 file.write(ratiod)
                 file.write(totalactif)
                 file.write(effectif)
-                file.write(dettefin)
 
 
 # Récupérer les données d'estimation de l'entreprise
