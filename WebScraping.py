@@ -53,7 +53,6 @@ def CreerListeSymboles() :
                         soup = BeautifulSoup(reponse.text, 'lxml')
                         if symbole in symbolesIncomplets :
                             secteur = secteurs[symbole]
-                            print(symbole)
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
                         else :
                             lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
@@ -61,7 +60,6 @@ def CreerListeSymboles() :
                                 numeroSecteurListe = lienSecteurListe[0]['href'].split('industry%5D=')
                                 if (len(numeroSecteurListe) == 2) :
                                     numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
-                                    print(symbole)
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
 
 
@@ -80,7 +78,7 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1].split('?symbol')[0])
         
-    nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '\\' + dateDepart.replace("/", "-") + '_' + duree + '.txt'
+    nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '\\' + dateDepart.replace('/', '-') + '_' + duree + '.txt'
 
     if (os.path.exists(os.getcwd() + '\\data\\' + actionSymbole) == False) :
         os.mkdir(os.getcwd() + '\\data\\' + actionSymbole)
@@ -109,15 +107,15 @@ def CreerDonneesSimulation() :
                 CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
 
 
-# Récupération des données historiques (2016-2019)
-def CreerDonneesHistoriques() :
+# Récupération des données historiques (3 dernières annnées)
+def CreerDonneesHistoriques(dateDepart) :
     with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
             print(symbole)
-            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2016_3Y.txt') == False) :
-                CreerValeursHistoriques(symbole, '01/01/2016', '3Y')
+            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\' + dateDepart.replace('/', '-') + '_3Y.txt') == False) :
+                CreerValeursHistoriques(symbole, dateDepart, '3Y')
 
 
 # Récupération des données de bilan d'entreprise
@@ -144,22 +142,22 @@ def CreerDonneesBilan() :
 
             with open(bilantxt, 'r') as file:
                 lines = file.readlines()
-                for line in lines:
-                    if 'Trésorerie' in line:
+                for line in lines :
+                    if 'Trésorerie' in line :
                         treso = line
-                    if "Chiffre d'affaires de l'année" in line:
+                    if "Chiffre d'affaires de l'année" in line :
                         ca = line
-                    if 'Résultat net' in line:
+                    if 'Résultat net' in line :
                         resunet = line
-                    if 'Résultat opérationnel' in line:
+                    if 'Résultat opérationnel' in line :
                         resuope = line
-                    if 'Résultat net part du groupe dilué par action' in line:
+                    if 'Résultat net part du groupe dilué par action' in line :
                         resunetact = line
-                    if 'Rentabilité financière' in line:
+                    if 'Rentabilité financière' in line :
                         rentafinance = line
-                    if "Ratio d'endettement" in line:
+                    if "Ratio d'endettement" in line :
                         ratiod = line
-                    if 'Total actif' in line:
+                    if 'Total actif' in line :
                         totalactif = line
                     if "Effectif en fin d'année" in line :
                         effectif = line
@@ -174,6 +172,7 @@ def CreerDonneesBilan() :
                 file.write(ratiod)
                 file.write(totalactif)
                 file.write(effectif)
+                file.write(dettefin)
 
 
 # Récupérer les données d'estimation de l'entreprise
@@ -208,8 +207,11 @@ def CreerDonneesEstimation() :
                         per = line
                     if 'Bénéfice net par action' in line:
                         benef = line
+                    if 'Dette financière nette' in line :
+                        dettefin = line
 
             with open (estimationstxt, 'w', encoding='utf8') as file:
                 file.write(ebitda)
                 file.write(per)
                 file.write(benef)
+                file.write(dettefin)

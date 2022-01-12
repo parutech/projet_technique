@@ -1,3 +1,4 @@
 EBITDA;0;0;0;
 PER;0.00;0.00;5.00;
-BÈnÈfice net par action;-2.28;-0.03;1.62;
+B√©n√©fice net par action;-2.28;-0.03;1.62;
+Dette financi√®re nette;0;0;0;

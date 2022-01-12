@@ -1,3 +1,4 @@
-EBITDA;162;197;237;
+EBITDA;162;197;238;
 PER;13.25;10.98;8.76;
-BÈnÈfice net par action;2.08;2.51;3.15;
+B√©n√©fice net par action;2.08;2.51;3.15;
+Dette financi√®re nette;32;62;40;
