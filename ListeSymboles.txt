@@ -4,17 +4,21 @@ ACCOR;1rPAC;Services aux consommateurs
 ACTIA GROUP;1rPATI;Industries
 ADOCIA;1rPADOC;Santé
 ADP;1rPADP;Industries
+AFFINE;1rPIML;Sociétés financières
 AIR FRANCE-KLM;1rPAF;Services aux consommateurs
 AIR LIQUIDE;1rPAI;Matériaux de base
 AIRBUS;1rPAIR;Industries
 AKKA TECHNOLOGIES;1rPAKA;Industries
 AKWEL;1rPAKW;Biens de consommation
 ALBIOMA;1rPABIO;Services aux collectivités
-ALD;1rPALD;Services aux consommateurs
 ALSTOM;1rPALO;Industries
 ALTAMIR;1rPLTA;Sociétés financières
 ALTAREA;1rPALTA;Sociétés financières
 ALTEN;1rPATE;Technologies
+ANF IMMOBILIER;1rPANF;Sociétés financières
+APRIL;1rPAPR;Sociétés financières
+ARCHOS;1rPALJXR;Biens de consommation
+AREVA;1rPAREVA;Services aux collectivités
 ARGAN;1rPARG;Sociétés financières
 ARKEMA;1rPAKE;Matériaux de base
 ARTMARKET.COM;1rPPRC;Services aux consommateurs
@@ -28,10 +32,12 @@ BENETEAU;1rPBEN;Biens de consommation
 BIC;1rPBB;Biens de consommation
 BIGBEN INTERACTIVE;1rPBIG;Biens de consommation
 BIOMERIEUX;1rPBIM;Santé
+BLUE SOLUTIONS;1rPBLUE;Industries
 BNP PARIBAS;1rPBNP;Sociétés financières
 BOIRON;1rPBOI;Santé
 BOLLORE;1rPBOL;Industries
 BONDUELLE;1rPBON;Biens de consommation
+BOURBON CORP.;1rPGBB;Pétrole et gaz
 BOUYGUES;1rPEN;Industries
 BUREAU VERITAS;1rPBVI;Industries
 CAPGEMINI;1rPCAP;Technologies
@@ -41,8 +47,9 @@ CASINO GUICHARD PERRACHON;1rPCO;Services aux consommateurs
 CATERING INTL CIS;1rPCTRG;Industries
 CEGEDIM;1rPCGM;Technologies
 CGG;1rPCGG;Pétrole et gaz
-CHARGEURS;1rPCRI;Biens de consommation
+CHARGEURS;1rPCRI;Industries
 CHRISTIAN DIOR;1rPCDI;Biens de consommation
+CIC;1rPCC;Sociétés financières
 CIE DES ALPES;1rPCDA;Services aux consommateurs
 CLARANOVA SE;1rPCLA;Technologies
 CNIM GROUP;1rPCOM;Industries
@@ -64,33 +71,45 @@ EIFFAGE;1rPFGR;Industries
 EKINOPS;1rPEKI;Industries
 ELIOR GROUP;1rPELIOR;Services aux consommateurs
 ENGIE;1rPENGI;Services aux collectivités
+EOS IMAGING;1rPEOSI;Santé
 ERAMET;1rPERA;Matériaux de base
 ERYTECH PHARMA;1rPERYP;Santé
 ESSILORLUXOTTICA;1rPEL;Santé
 ESSO;1rPES;Pétrole et gaz
+EULER HERMES;1rPELE;Sociétés financières
 EURAZEO;1rPRF;Industries
+EURO DISNEY;1rPEDL;Services aux consommateurs
 EUROFINS SCIENTIFIC;1rPERF;Santé
 EURONEXT;1rPENX;Sociétés financières
+EUROPACORP;1rPALECP;Pétrole et gaz
 EUROPCAR MOBILITY GRP;1rPEUCAR;Services aux consommateurs
 EUTELSAT COMMUNIC.;1rPETL;Services aux consommateurs
 EXEL INDUSTRIES A;1rPEXE;Industries
+FAIVELEY TRANSPORT;1rPLEY;Industries
 FAURECIA;1rPEO;Biens de consommation
-FDJ;1rPFDJ;Services aux consommateurs
+FIMALAC;1rPFIM;Sociétés financières
 FNAC DARTY;1rPFNAC;Services aux consommateurs
+FUTUREN;1rPFTRN;Services aux collectivités
+GAMELOFT;1rPGFT;Biens de consommation
 GECINA;1rPGFC;Sociétés financières
 GENERAL ELECTRIC;1rPGNE;Energie
 GENFIT;1rPGNFT;Santé
 GETLINK (ex: EUROTUNNEL);1rPGET;Industries
+GFI INFORMATIQUE;1rPGFI;Technologies
 GL EVENTS;1rPGLO;Industries
 GROUPE GORGE;1rPGOE;Industries
 GTT (GAZTRANSPORT ET TEC.);1rPGTT;Pétrole et gaz
 HAULOTTE GROUP;1rPPIG;Industries
+HAVAS;1rPHAV;Services aux consommateurs
 HERMES INTL;1rPRMS;Biens de consommation
 HEXAOM;1rPHEXA;Biens de consommation
 HOLCIM;1rPHOLN;Industries
+HSBC HOLDINGS;1rPHSB;Sociétés financières
 ICADE;1rPICAD;Sociétés financières
 ID LOGISTICS;1rPIDL;Industries
+ILIAD;1rPILD;Technologies
 IMERYS;1rPNK;Matériaux de base
+INGENICO GROUP;1rPING;Technologies
 INNATE PHARMA;1rPIPH;Santé
 INTERPARFUMS;1rPITP;Biens de consommation
 IPSEN;1rPIPN;Santé
@@ -104,6 +123,7 @@ L'OREAL;1rPOR;Biens de consommation
 LAGARDERE SA;1rPMMB;Services aux consommateurs
 LATECOERE;1rPLAT;Industries
 LAURENT PERRIER;1rPLPE;Biens de consommation
+LE BELIER;1rPBELI;Biens de consommation
 LECTRA;1rPLSS;Technologies
 LEGRAND;1rPLR;Industries
 LISI;1rPFII;Industries
@@ -117,11 +137,15 @@ MARIE BRIZARD;1rPMBWS;Biens de consommation
 MAROC TELECOM;1rPIAM;Télécommunications
 MAUNA KEA TECH;1rPMKEA;Santé
 MAUREL & PROM;1rPMAU;Pétrole et gaz
+MEDTECH;1rPROSA;Santé
 MERCIALYS;1rPMERY;Sociétés financières
 MERSEN;1rPMRN;Industries
 METABOLIC EXPLORER;1rPMETEX;Matériaux de base
 MICHELIN;1rPML;Biens de consommation
+MONTUPET;1rPMON;Biens de consommation
 NANOBIOTIX;1rPNANO;Santé
+NATIXIS;1rPKN;Sociétés financières
+NATUREX;1rPNRX;Biens de consommation
 NEXANS;1rPNEX;Industries
 NEXITY;1rPNXI;Sociétés financières
 NICOX;1rPCOX;Santé
@@ -134,13 +158,16 @@ PERNOD RICARD;1rPRI;Biens de consommation
 PEUGEOT INVEST;1rPPEUG;Sociétés financières
 PHARMAGEST INTERACT;1rPPHA;Technologies
 PIERRE ET VACANCES;1rPVAC;Services aux consommateurs
+PLAST V DE LOIR;1rPPVLT;Matériaux de base
 PLASTIC OMNIUM;1rPPOM;Biens de consommation
 PLASTiVALOIRE;1rPPVL;Matériaux de base
 PROLOGUE;1rPPROL;Technologies
+PSB INDUSTRIES;1rPPSB;Industries
 PUBLICIS GROUPE;1rPPUB;Services aux consommateurs
 QUADIENT;1rPQDT;Technologies
 RALLYE;1rPRAL;Services aux consommateurs
 RAMSAY GENERALE;1rPGDS;Santé
+RECYLEX;1rPRX;Matériaux de base
 REMY COINTREAU;1rPRCO;Biens de consommation
 RENAULT;1rPRNO;Biens de consommation
 REXEL;1rPRXL;Industries
@@ -149,15 +176,16 @@ RUBIS;1rPRUI;Services aux collectivités
 SAFRAN;1rPSAF;Industries
 SAINT-GOBAIN;1rPSGO;Industries
 SANOFI;1rPSAN;Santé
-SARTORIUS STEDIM BIOTECH;1rPDIM;Santé
 SAVENCIA;1rPSAVE;Biens de consommation
 SCHLUMBERGER;1rPSLB;Pétrole et gaz
 SCHNEIDER ELECTRIC;1rPSU;Industries
 SCOR;1rPSCR;Sociétés financières
 SEB;1rPSK;Biens de consommation
 SECHE ENVIRON;1rPSCHP;Industries
+SEQUANA REGPT;1rPSEQ;Matériaux de base
 SES;1rPSESG;Services aux consommateurs
 SES IMAGOTAG;1rPSESL;Industries
+SIPH;1rPSIPH;Matériaux de base
 SOCIETE GENERALE;1rPGLE;Sociétés financières
 SODEXO;1rPSW;Services aux consommateurs
 SOITEC;1rPSOI;Technologies
@@ -168,12 +196,14 @@ SPIE;1rPSPIE;Industries
 SQLI;1rPSQI;Technologies
 STEF;1rPSTF;Industries
 STELLANTIS;1rPSTLA;Biens de consommation
+STENTYS;1rPSTNT;Santé
 STMICROELECTRONICS;1rPSTM;Technologies
 SUEZ;1rPSEV;Services aux collectivités
 SWORD GROUP;1rPSWP;Technologies
 SYNERGIE;1rPSDG;Industries
-TECHNIPFMC;1rPFTI;Pétrole et gaz
+TECHNIP;1rPTEC;Pétrole et gaz
 TELEPERFORMANCE;1rPTEP;Industries
+TERREIS;1rPTER;Sociétés financières
 TF1;1rPTFI;Services aux consommateurs
 TFF GROUP;1rPTFF;Industries
 THALES;1rPHO;Industries
@@ -185,6 +215,7 @@ UBISOFT ENTERTAIN.;1rPUBI;Biens de consommation
 VALEO;1rPFR;Biens de consommation
 VALLOUREC;1rPVK;Industries
 VALNEVA;1rPVLA;Santé
+VALTECH;1rPLTE;Technologies
 VEOLIA;1rPVIE;Services aux collectivités
 VERIMATRIX;1rPVMX;Technologies
 VICAT;1rPVCT;Industries
@@ -197,3 +228,4 @@ VRANKEN-POMMERY MO.;1rPVRAP;Biens de consommation
 WAVESTONE;1rPWAVE;Technologies
 WENDEL;1rPMF;Sociétés financières
 WORLDLINE;1rPWLN;Industries
+XPO LOGISTICS;1rPXPO;Industries
