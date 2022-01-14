@@ -21,6 +21,7 @@ secteurs = {
     '1rPJCQ' : 'Matériaux de base'
 }
 
+
 # Récupération de la liste de toutes les actions présentes sur Euronext Paris
 def CreerListeSymboles() :
     baseUrl = 'https://www.boursorama.com/bourse/actions/cotations/page-'
@@ -45,7 +46,7 @@ def CreerListeSymboles() :
                 for ligne in lignesTableau :
                     symbole = ligne['data-ist']
                     nomAction = ligne.findAll('a')[0].text
-                    reponse = requests.get('https://www.boursorama.com/_formulaire-periode/page-1?symbol=' + symbole)
+                    reponse = requests.get('https://www.boursorama.com/_formulaire-periode/page-1?symbol=' + symbole + '&historic_search[startDate]=01/01/2016&historic_search[duration]=1M&historic_search[period]=1')
                     soup = BeautifulSoup(reponse.text, 'lxml')
                     alerte = soup.findAll('p', {'class' : 'c-alert__text'})
                     if (len(alerte) == 0) :
@@ -54,6 +55,7 @@ def CreerListeSymboles() :
                         if symbole in symbolesIncomplets :
                             secteur = secteurs[symbole]
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
+                            print(symbole)
                         else :
                             lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
                             if (len(lienSecteurListe) != 0) :
@@ -61,12 +63,14 @@ def CreerListeSymboles() :
                                 if (len(numeroSecteurListe) == 2) :
                                     numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
+                                    print(symbole)
 
 
 # Récupération des valeurs historiques d'une action pour une période donnée
-def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
+def CreerValeursHistoriques(symbole, dateDepart, duree, param='w') :
+    print(symbole)
     baseUrl = 'https://www.boursorama.com/_formulaire-periode/page-'
-    complementUrl = '?symbol=' + actionSymbole + '&historic_search[startDate]=' + dateDepart + '&historic_search[duration]=' + duree + '&historic_search[period]=1'
+    complementUrl = '?symbol=' + symbole + '&historic_search[startDate]=' + dateDepart + '&historic_search[duration]=' + duree + '&historic_search[period]=1'
     nombrePages = 0
 
     reponse = requests.get(baseUrl + "1" + complementUrl)
@@ -78,10 +82,10 @@ def CreerValeursHistoriques(actionSymbole, dateDepart, duree, param='w') :
         else :
             nombrePages = int(lienDernierePage[0]['href'].split('page-')[1].split('?symbol')[0])
         
-    nomFichier = os.getcwd() + '\\data\\' + actionSymbole + '\\' + dateDepart.replace('/', '-') + '_' + duree + '.txt'
+    nomFichier = os.getcwd() + '\\data\\' + symbole + '\\' + dateDepart.replace('/', '-') + '_' + duree + '.txt'
 
-    if (os.path.exists(os.getcwd() + '\\data\\' + actionSymbole) == False) :
-        os.mkdir(os.getcwd() + '\\data\\' + actionSymbole)
+    if (os.path.exists(os.getcwd() + '\\data\\' + symbole) == False) :
+        os.mkdir(os.getcwd() + '\\data\\' + symbole)
 
     with open(nomFichier, param) as file :
         for i in range(1, nombrePages + 1) :
@@ -113,7 +117,7 @@ def CreerDonneesHistoriques(dateDepart) :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\' + dateDepart.replace('/', '-') + '_3Y.txt') == False) :
+            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2016_3Y.txt') == False) :
                 CreerValeursHistoriques(symbole, dateDepart, '3Y')
 
 
@@ -122,7 +126,8 @@ def CreerDonneesBilan() :
     with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
-            symbole = line.strip().split(';')[1] 
+            symbole = line.strip().split(';')[1]
+            print(symbole)
             bilantxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
             url = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
@@ -179,6 +184,7 @@ def CreerDonneesEstimation() :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
+            print(symbole)
             estimationstxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'estimations.txt'
 
             url = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')

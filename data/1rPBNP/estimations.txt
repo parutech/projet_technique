@@ -1,4 +1,4 @@
 EBITDA;0;0;0;
-PER;8.72;8.54;8.25;
+PER;9.24;9.04;8.74;
 Bénéfice net par action;6.97;7.12;7.36;
 Dette financière nette;0;0;0;

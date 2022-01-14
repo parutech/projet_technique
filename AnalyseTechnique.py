@@ -1,5 +1,6 @@
 import os
 import pandas
+import time
 
 
 def CalculerEMA(closingData, period) :
@@ -21,7 +22,10 @@ def CalculerPositions(listEMAi, listEMAj, hysteresis) :
         elif (listEMAi[i] < listEMAj[i] * (1 - hysteresis)) :
             listPositions.append('SELL')
         else :
-            listPositions.append(listPositions[i])
+            if (len(listPositions) == 0) :
+                listPositions.append('NONE')
+            else :
+                listPositions.append(listPositions[i-1])
     listPositions = TrierPositions(listPositions)
     return listPositions
 
@@ -35,7 +39,7 @@ def TrierPositions(listPositions) :
 
 def CalculerScore(closingData, listPositions) :
     score = 1
-    buyPrice = 0
+    buyPrice = closingData[0]
     sellPrice = 0
     for i in range(len(listPositions)) :
         if (listPositions[i] == 'BUY') :
@@ -45,6 +49,9 @@ def CalculerScore(closingData, listPositions) :
             score = (sellPrice / buyPrice) * score
             buyPrice = 0
             sellPrice = 0
+    if (buyPrice != 0) & (sellPrice == 0) :
+        sellPrice = closingData[-1]
+        score = (sellPrice / buyPrice) * score
     return score
 
 
@@ -55,22 +62,27 @@ def AnalyserValeursHistoriques(symbol, dateStart) :
     pandas.to_numeric(dataFrame['Cloture'])
 
     closingData = dataFrame['Cloture'].tolist()
-    bestParameters = [0, 0, 0] # Période i, Période j, Score PTF
+    print(dataFrame)
+    bestParameters = [0, 0, 0, 0] # Période i, Période j, Score PTF
+
+    startTime = time.time()
 
     for i in range(10, 300, 10) :           # j >= i, donc si EMA(i) > EMA(j) : croissance
-        for j in range(i+10, 300, 10) :        #              si EMA(i) < EMA(j) : décroissance
-            #for k in range(0.0001, 0.005, 0.0001) :
-            listEMAi = CalculerEMA(closingData, i)
-            listEMAj = CalculerEMA(closingData, j)
-            listPositions = CalculerPositions(listEMAi[300:], listEMAj[300:], 0)
-            score = CalculerScore(closingData[300:], listPositions)
-            if (score > bestParameters[2]) :
-                bestParameters = [i, j, score]
-    print(bestParameters)
+        for j in range(i+10, 300, 10) :     #              si EMA(i) < EMA(j) : décroissance
+            for k in range(1, 51) :
+                hysteresis = 0.0001 * k
+                listEMAi = CalculerEMA(closingData, i)
+                listEMAj = CalculerEMA(closingData, j)
+                listPositions = CalculerPositions(listEMAi[300:], listEMAj[300:], hysteresis)
+                score = CalculerScore(closingData[300:], listPositions)
+                if (score > bestParameters[3]) :
+                    bestParameters = [i, j, k, score]
+    print(bestParameters, (time.time() - startTime))
+    return bestParameters
 
-with open('ListeSymboles.txt', 'r') as file :
-        lines = file.readlines()
-        for line in lines :
-            symbole = line.strip().split(';')[1]
-            print(symbole, end='')
-            AnalyserValeursHistoriques(symbole, '01/01/2016')
+""" with open('ListeSymboles.txt', 'r') as file :
+    lines = file.readlines()
+    for line in lines :
+        symbole = line.strip().split(';')[1]
+        print(symbole, end='')
+        AnalyserValeursHistoriques(symbole, '01/01/2016') """
