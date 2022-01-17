@@ -55,7 +55,6 @@ def CreerListeSymboles() :
                         if symbole in symbolesIncomplets :
                             secteur = secteurs[symbole]
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
-                            print(symbole)
                         else :
                             lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
                             if (len(lienSecteurListe) != 0) :
@@ -63,12 +62,10 @@ def CreerListeSymboles() :
                                 if (len(numeroSecteurListe) == 2) :
                                     numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
-                                    print(symbole)
 
 
 # Récupération des valeurs historiques d'une action pour une période donnée
 def CreerValeursHistoriques(symbole, dateDepart, duree, param='w') :
-    print(symbole)
     baseUrl = 'https://www.boursorama.com/_formulaire-periode/page-'
     complementUrl = '?symbol=' + symbole + '&historic_search[startDate]=' + dateDepart + '&historic_search[duration]=' + duree + '&historic_search[period]=1'
     nombrePages = 0
@@ -101,33 +98,12 @@ def CreerValeursHistoriques(symbole, dateDepart, duree, param='w') :
                     file.write(date + ';' + ouverture + ';' + cloture + '\n')
 
 
-# Récupération des données pour la simulation (2019-2021)
-def CreerDonneesSimulation() :
-    with open('ListeSymboles.txt', 'r') as file :
-        lines = file.readlines()
-        for line in lines :
-            symbole = line.strip().split(';')[1]
-            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2019_2Y.txt') == False) :
-                CreerValeursHistoriques(symbole, '01/01/2019', '2Y')
-
-
-# Récupération des données historiques (3 années à partir de la date de départ)
-def CreerDonneesHistoriques(dateDepart) :
-    with open('ListeSymboles.txt', 'r') as file :
-        lines = file.readlines()
-        for line in lines :
-            symbole = line.strip().split(';')[1]
-            if (os.path.exists(os.getcwd() + '\\data\\' + symbole + '\\01-01-2016_3Y.txt') == False) :
-                CreerValeursHistoriques(symbole, dateDepart, '3Y')
-
-
 # Récupération des données de bilan d'entreprise
 def CreerDonneesBilan() :
     with open('ListeSymboles.txt', 'r') as file :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            print(symbole)
             bilantxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
             url = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
@@ -184,7 +160,6 @@ def CreerDonneesEstimation() :
         lines = file.readlines()
         for line in lines :
             symbole = line.strip().split(';')[1]
-            print(symbole)
             estimationstxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'estimations.txt'
 
             url = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')

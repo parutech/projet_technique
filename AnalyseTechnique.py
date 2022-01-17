@@ -61,8 +61,7 @@ def AnalyserValeursHistoriques(symbol, dateStart) :
     pandas.to_numeric(dataFrame['Ouverture'])
     pandas.to_numeric(dataFrame['Cloture'])
 
-    closingData = dataFrame['Cloture'].tolist()
-    print(dataFrame)
+    closingData = dataFrame['Ouverture'].tolist()
     bestParameters = [0, 0, 0, 0] # Période i, Période j, Score PTF
 
     startTime = time.time()
