@@ -125,17 +125,43 @@ class Action :
 
 
 class Portefeuille :
-    def __init__(self, listeActions) -> None:
-        self.listeActions = listeActions
+    global dateActuelle
+
+
+    def __init__(self) -> None:
+        self.listeActions = []
+        self.liquidite = 0
+        self.valeur = 0
         pass
+
+
+    def getValeur(self) :
+
+        pass
+
+
+    def getLiquidite(self) :
+        return self.liquidite
+
+
+    def getListeActions(self) :
+        return self.listeActions
+
+
+    def setListeActions(self, listeActions) :
+        self.listeActions = listeActions
 
     
-    def removeAction(self, nom) :
+    def setLiquidite(self, liquidite) :
+        self.liquidite = liquidite
+
+    
+    def vendreAction(self, nom) :
 
         pass
 
 
-    def addAction(self, nom) :
+    def acheterAction(self, nom) :
 
         pass
 
