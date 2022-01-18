@@ -1,5 +1,3 @@
-# Fichier principal qui appellera les fichiers de scraping, d'analyse, et de rendu pour l'application
-
 import datetime
 import os
 import pandas
@@ -8,16 +6,7 @@ import WebScraping
 # import AnalyseFondamentale
 import AnalyseTechnique
 
-# WebScraping.CreerListeSymboles()
-# WebScraping.CreerDonneesSimulation()
-# WebScraping.CreerDonneesAffichage()
-# WebScraping.CreerDonneesHistoriques('01/01/2016')
-# WebScraping.CreerDonneesBilan()
-# WebScraping.CreerDonneesEstimation()
-
 dateActuelle = datetime.date(2019, 1, 1)
-
-# Nom de l'action, secteur, ouverture, fermeture, historique (2sem, 2mois, 1an)
 
 """ dateDebut = datetime.date(2019, 1, 1)
 dateFin = datetime.date(2021, 12, 31)
@@ -66,14 +55,12 @@ class Action :
         filePath = os.getcwd() + '\\data\\' + self.symbole + '\\01-01-2019_2Y.txt'
         if (os.path.exists(filePath) == False) :
             WebScraping.CreerValeursHistoriques(self.symbole, '01/01/2019', '2Y')
-        pass
 
 
     def setDonneesGraphiques(self) : 
         filePath = os.getcwd() + '\\data\\' + self.symbole + '\\01-01-2018_3Y.txt'
         if (os.path.exists(filePath) == False) :
             WebScraping.CreerValeursHistoriques(self.symbole, '01/01/2018', '3Y')
-        pass
 
 
     def setDonneesHistoriques(self) :
@@ -83,7 +70,6 @@ class Action :
         filePath = os.getcwd() + '\\data\\' + self.symbole + '\\' + strDateHistorique.replace('/', '-') + '_3Y.txt'
         if (os.path.exists(filePath) == False) :
             WebScraping.CreerValeursHistoriques(self.symbole, strDateHistorique, '3Y')
-        pass
 
 
     def getDonneesGraphiques(self, duree) :
