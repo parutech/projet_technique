@@ -6,7 +6,7 @@ import pandas
 
 import WebScraping
 # import AnalyseFondamentale
-# import AnalyseTechnique
+import AnalyseTechnique
 # import Application
 
 # WebScraping.CreerListeSymboles()
@@ -70,9 +70,12 @@ class Action :
 
 
     def setDonneesHistoriques(self) :
-        filePath = os.getcwd() + '\\data\\' + self.symbole + '\\01-01-2016_3Y.txt'
+        dateHistorique = dateActuelle
+        dateHistorique.year = dateActuelle.year - 3
+        strDateHistorique = dateHistorique.strftime('%d/%m/%Y')
+        filePath = os.getcwd() + '\\data\\' + self.symbole + '\\' + strDateHistorique.replace('/', '-') + '_3Y.txt'
         if (os.path.exists(filePath) == False) :
-            WebScraping.CreerValeursHistoriques(self.symbole, '01/01/2016', '3Y')
+            WebScraping.CreerValeursHistoriques(self.symbole, strDateHistorique, '3Y')
         pass
 
 
@@ -117,11 +120,10 @@ class Action :
 
 
     def getParametresOptimaux(self) :
-        
-        pass
-
-
-    pass
+        dateHistorique = dateActuelle
+        dateHistorique.year = dateActuelle.year - 3
+        strDateHistorique = dateHistorique.strftime('%d/%m/%Y')
+        return AnalyseTechnique.AnalyserValeursHistoriques(self.symbole, strDateHistorique)
 
 
 class Portefeuille :
