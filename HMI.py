@@ -1,5 +1,2 @@
-import Portefeuille
-from Portefeuille import dateActuelle
-import WebScraping
+from PTF import *
 import datetime
-
