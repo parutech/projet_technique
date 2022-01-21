@@ -633,11 +633,11 @@ def NoteEvolution():
         # print(x)
         # print(evolu)
         with open('TailleEntreprises.txt','a') as file4:
-            file4.write( x[0])
+            file4.write(x[0]+" ")
             
             file4.write(x[1]+" ")
             
-            file4.write(" "+x[2])
+            file4.write(x[2])
 
             # file4.write(" "+x[3])
            
@@ -717,6 +717,5 @@ def FonctionNote(entreprise):
             #print("Trouvé")
             return i[1]
        
-                  
- 
-# print(FonctionNote("vinci"))
+
+print(FonctionNote("airbus"))
