@@ -136,9 +136,24 @@ class Portefeuille :
     def setLiquidite(self, liquidite) :
         self.liquidite = liquidite
 
-    def acheterAction(self, nom, quantite) :
-        
+    def acheterAction(self, action, quantite) :
+        prixTotal = action.getValeur() * quantite
+        if (prixTotal <= self.liquidite) :
+            if (action.getQuantite == 0) :
+                self.listeActions.append(action)
+            action.setQuantite(action.getQuantite() + quantite)
+            self.setLiquidite(self.getLiquidite() - prixTotal)
+            return self.liquidite
+        else :
+            return -1
 
-    def vendreAction(self, nom, quantite) :
-        
-        pass
+    def vendreAction(self, action, quantite) :
+        prixTotal = action.getValeur() * quantite
+        if (quantite <= action.getQuantite()) :
+            action.setQuantite(action.getQuantite() - quantite)
+            self.setLiquidite(self.getLiquidite() + prixTotal)
+            if (action.getQuantite == 0) :
+                self.listeActions.remove(action)
+            return self.liquidite
+        else :
+            return -1
