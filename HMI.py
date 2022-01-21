@@ -1,7 +1,8 @@
 from PTF import *
 import datetime
 
-listeActionsTotales = []
+dateActuelle
+listeObjetsActions
 
 if (__name__ == '__main__') :
     filePath = os.getcwd() + '\\ListeSymboles.txt'
@@ -11,11 +12,11 @@ if (__name__ == '__main__') :
         lines = file.readlines()
         for line in lines :
             action = Action(line.strip().split(';')[0])
-            listeActionsTotales.append(action)
+            listeObjetsActions.append(action)
 
-print(listeActionsTotales)
+print(listeObjetsActions)
 
-dates, donnees = listeActionsTotales[0].getDonneesGraphiques('2W')
+dates, donnees = listeObjetsActions[0].getDonneesGraphiques('2W')
 
 print(dates)
 print(donnees)

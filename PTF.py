@@ -7,6 +7,7 @@ import WebScraping
 import AnalyseTechnique
 
 dateActuelle = datetime.date(2019, 1, 1)
+listeObjetsActions = []
 
 """ dateDebut = datetime.date(2019, 1, 1)
 dateFin = datetime.date(2021, 12, 31)
@@ -100,7 +101,7 @@ class Action :
         pass
 
     def getStrategie(self) :
-
+            
         pass
 
     def getParametresOptimaux(self) :
