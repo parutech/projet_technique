@@ -55,6 +55,7 @@ def CreerListeSymboles() :
                         if symbole in symbolesIncomplets :
                             secteur = secteurs[symbole]
                             file.write(nomAction + ';' + symbole + ';' + secteurs[symbole] + '\n')
+                            print(symbole)
                         else :
                             lienSecteurListe = soup.findAll('a', {'class' : 'c-link c-list-info__value c-link--animated'})
                             if (len(lienSecteurListe) != 0) :
@@ -62,6 +63,7 @@ def CreerListeSymboles() :
                                 if (len(numeroSecteurListe) == 2) :
                                     numeroSecteur = numeroSecteurListe[1].split('&filter')[0]
                                     file.write(nomAction + ';' + symbole + ';' + secteurs[str(numeroSecteur)] + '\n')
+                                    print(symbole)
 
 
 # Récupération des valeurs historiques d'une action pour une période donnée
