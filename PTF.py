@@ -68,7 +68,7 @@ class Action :
         if (os.path.exists(filePath) == False) :
             WebScraping.CreerValeursHistoriques(self.symbole, strDateHistorique, '3Y')
 
-    def getDonneesGraphiques(self, duree) :
+    def getDonneesGraphiques(self, duree = '2W') :
         self.setDonneesGraphiques()
         cheminFichier = os.getcwd() + '\\data\\' + self.symbole + '\\01-01-2018_3Y.txt'
         dates = []
@@ -101,7 +101,7 @@ class Action :
         pass
 
     def getStrategie(self) :
-            
+
         pass
 
     def getParametresOptimaux(self) :
