@@ -3,7 +3,7 @@ import os
 import pandas
 
 import WebScraping
-# import AnalyseFondamentale
+import AnalyseStrategique
 import AnalyseTechnique
 
 dateActuelle = datetime.date(2019, 1, 1)
@@ -97,12 +97,7 @@ class Action :
         return dataFrame['Ouverture'][indexJourActuel]
 
     def getSentiment(self) :
-        
-        pass
-
-    def getStrategie(self) :
-
-        pass
+        return AnalyseStrategique.FonctionNote(self.getNom())
 
     def getParametresOptimaux(self) :
         self.setDonneesHistoriques()

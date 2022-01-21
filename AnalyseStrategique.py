@@ -5,14 +5,7 @@ import re
 import os
 from bs4 import BeautifulSoup
 
-
 # 2019 
-
-
-
-
-
-
 
 PME = []
 ETI = []
@@ -66,28 +59,10 @@ notePegs = []
 TaillesNote = []
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def Taille2019():
-    
-    
     
 ### PER #########
 
-
-    
     PME = []
     ETI = []
     GE = []
@@ -115,51 +90,28 @@ def Taille2019():
     Taille2 = []
     Taille3 = []
 
-    with open('listeSymbole.txt','r') as file: 
+    with open('ListeSymboles.txt','r') as file: 
         f = file.readlines()
-        print(len(f))
         for line in f:
-            
             nomEntreprise=line.split(';')[0] 
-           
             symbole = line.split(';')[1].split('\n')
             secteur = line.split(';')[2].split('\n')[0]
-           
-            
             entreprises.append(nomEntreprise)
             secteurs.append(secteur)
-           
-            
-                
-                
-              
-            
-                
-               
+
             try :
-                                
-                with open('/Users/Ykidd/Desktop/PROJET/data/'+symbole[0]+'/bilan.txt','r',encoding="latin-1") as file1:
+                with open(os.getcwd() + '\\data\\'+symbole[0]+'\\bilan.txt','r',encoding="latin-1") as file1:
                     f1 = file1.readlines()
-                    
-                   
                     ChiffAff = re.split("[;]",f1[0])
                     Ca.append(ChiffAff[1])
                     totalActif = re.split("[;]",f1[7])
                     bilan.append(totalActif[1])
                     Eff = re.split("[;]",f1[8])
                     effectif.append(Eff[1])
-                    
-                    
-                    
-                    
-                                                
+                                    
             except FileNotFoundError:
                 print("Oops! pas de fichier pour le symbole",symbole[0])
-                
-                  
-                        
-    
-                    
+                   
     # DEBUT DU TRI
     for z in zip(entreprises,Ca,effectif,bilan,secteurs):
         listTuple.append(z)
@@ -169,11 +121,8 @@ def Taille2019():
         eff = int(z[2].replace(" ",""))
         bi = int(z[3].replace(" ",""))
         sect = z[4]
-        print(len(listTuple))
         if (chiff < 50000 or bi < 43000 )  and (eff<250):
-            
             # print(nom+" est une PME du secteur",sect)
-            
             PME.append(nom)
             Taille1.append("PME")
             
@@ -186,32 +135,24 @@ def Taille2019():
             # print(nom+" "+" est une GE du secteur",sect)
             GE.append(nom)
             Taille1.append("GE")
+            
     return Taille1
-   
-    
     
 def NotePer():    
-    with open('listeSymbole.txt', 'r') as file: #permet de lire le fichier depuis le repertoire donné
+    with open('ListeSymboles.txt', 'r') as file: #permet de lire le fichier depuis le repertoire donné
         f = file.readlines()
-       
-        
         #Extraction du nom des entreprises
         for line in f:
-            
-            nomEntreprise=line.split(';')[0] 
-           
+            nomEntreprise=line.split(';')[0]
             symbole =line.split(';')[1].split('\n')
             secteur =line.split(';')[2].split('\n')[0]
-           
-            
             entreprises.append(nomEntreprise)
             secteurs.append(secteur)
             # print(entreprises)
             
                         
-            with open('/Users/Ykidd/Desktop/PROJET/data/'+symbole[0]+'/estimations.txt','r') as file2:
+            with open(os.getcwd() + '\\data\\'+symbole[0]+'\\estimations.txt','r') as file2:
                 f2 = file2.readlines()
-                        
                 ebitdas = re.split("[;]",f2[0])
                 ebitda.append(ebitdas[1])
                 per = re.split("[;]",f2[1])
@@ -220,8 +161,6 @@ def NotePer():
                 dette.append(dettes[1])  
                 notePers = []
                 notePegs = []
-            
-                
                 for z in zip(entreprises,PERs):
                     
                     listTuple.append(z)
@@ -229,16 +168,12 @@ def NotePer():
                 
                     nom = z[0]
                     indPer = float(z[1].replace(" ",""))    
-                    
                 
                     #Vert 
                     if (indPer > 0 and indPer < 10) :
                         # print(nom+" : prix sous évalué",indPer)
                         PERClass1.append(nom)
                         notePer = notes[2]*coeffPer
-                        
-                        
-                        
                         notesEntreprise.append(notePer)
                         notePers.append(notePer)
                         
@@ -259,36 +194,24 @@ def NotePer():
                         # print(nom+" : bulle spéculative ou très forts profits",indPer)
                         PERClass4.append(nom)
                         notePer = notes[1]*coeffPer
-                
                         notePers.append(notePer)
-                        
-                        
         return notePers
-                        
-
-
-        
 
 ### PEG #########
 
 def NotePEG():
     for z in zip(entreprises,dette, ebitda):
         listTuple.append(z)
-        
-    
         nom = z[0]
         df = float(z[1].replace(" ",""))
         eb = float(z[2].replace(" ","")) 
         if (df != 0 and eb != 0):
             peg = df/eb
             PEG.append(peg)
-            
-            
-       
-        
+
           #VERT
             if (peg > 0 and peg <= 3) :
-                print(nom+" : situation correcte quant au remboursement de ses crédits",peg)
+                #print(nom+" : situation correcte quant au remboursement de ses crédits",peg)
                 PEGClass1.append(nom)
                 notePeg = notes[2]*coeffPeg
                 notePegs.append(notePeg)
@@ -296,21 +219,18 @@ def NotePEG():
         #Orange
                 
             elif (peg > 3 and peg < 5) : 
-                print(nom+" : bof bof ",peg)
+                #print(nom+" : bof bof ",peg)
                 PEGClass2.append(nom)
                 notePeg = notes[1]*coeffPeg
                 notePegs.append(notePeg)
-                
                 #Rouge
             elif (peg ==0) : 
                 print("ZERRRRRROOO")
                 # PEGClass2.append(nom)
                 # notePeg = notes[1]*coeffPeg
                 # notePegs.append(notePeg)
-                
                 #Rouge
             elif (peg < 0) : 
-                 
                 notePeg = notes[2]*coeffPeg
                 notePegs.append(notePeg)
             else :
@@ -321,13 +241,10 @@ def NotePEG():
             
             notePeg = 50*coeffPeg #Medium dapres Diéééé chales
             notePegs.append(notePeg)
-            
-            
             PEG.append(0)
     return notePegs
-    
             
-
+#print(len(notePegs))    
         
 
 
@@ -374,26 +291,15 @@ def RecupérationEntreprise():
   
    
 
-    with open('listeSymbole.txt','r') as file: 
+    with open('ListeSymboles.txt','r') as file: 
         f = file.readlines()
         # print(len(f))
         for line in f:
-            
             nomEntreprise=line.split(';')[0] 
-           
             symbole =line.split(';')[1].split('\n')
             secteur =line.split(';')[2].split('\n')[0]
-           
-            
             entreprises.append(nomEntreprise)
-            
-            
-           
     return entreprises  
-                
-                
-    
-
 
 def Taille2020():
     
@@ -424,7 +330,7 @@ def Taille2020():
     Taille2 = []
     Taille3 = []
 
-    with open('listeSymbole.txt','r') as file: 
+    with open('ListeSymboles.txt','r') as file: 
         f = file.readlines()
         # print(len(f))
         for line in f:
@@ -437,38 +343,22 @@ def Taille2020():
             
             entreprises.append(nomEntreprise)
             secteurs.append(secteur)
-           
-            
-                
-                
-              
-            
-                
                
             try :
                                 
-                with open('/Users/Ykidd/Desktop/PROJET/data/'+symbole[0]+'/bilan.txt','r',encoding="latin-1") as file1:
+                with open(os.getcwd() + '\\data\\'+symbole[0]+'\\bilan.txt','r',encoding="latin-1") as file1:
                     f1 = file1.readlines()
-                    
-                   
                     ChiffAff = re.split("[;]",f1[0])
                     Ca.append(ChiffAff[2])
                     totalActif = re.split("[;]",f1[7])
                     bilan.append(totalActif[2])
                     Eff = re.split("[;]",f1[8])
                     effectif.append(Eff[2])
-                    
-                    
-                    
-                    
                                                 
             except FileNotFoundError:
                 print("Oops! pas de fichier pour le symbole",symbole[0])
                 
-                  
-                        
-    
-                    
+      
     # DEBUT DU TRI
     for z in zip(entreprises,Ca,effectif,bilan,secteurs):
         listTuple.append(z)
@@ -537,9 +427,9 @@ def Taille2021():
     Taille2 = []
     Taille3 = []
 
-    with open('listeSymbole.txt','r') as file: 
+    with open('ListeSymboles.txt','r') as file: 
         f = file.readlines()
-        print(len(f))
+        #print(len(f))
         for line in f:
             
             nomEntreprise=line.split(';')[0] 
@@ -550,19 +440,11 @@ def Taille2021():
             
             entreprises.append(nomEntreprise)
             secteurs.append(secteur)
-           
-            
-                
-                
-              
-            
-                
-               
+
             try :
                                 
-                with open('/Users/Ykidd/Desktop/PROJET/data/'+symbole[0]+'/bilan.txt','r',encoding="latin-1") as file1:
+                with open(os.getcwd() + '\\data\\'+symbole[0]+'\\bilan.txt','r',encoding="latin-1") as file1:
                     f1 = file1.readlines()
-                    
                    
                     ChiffAff = re.split("[;]",f1[0])
                     Ca.append(ChiffAff[3])
@@ -570,40 +452,20 @@ def Taille2021():
                     totalActif = re.split("[;]",f1[7])
                     
                     if totalActif[3] == '\n':
-                       
-                        
                         bilan.append(totalActif[2])
                     else:
-                        
-                       
-                        
-                  
-                       
-                        
-                       bilan.append(totalActif[3])
-                    
-                    
-                    
+                        bilan.append(totalActif[3])
+
                     Eff = re.split("[;]",f1[8])
                     if Eff[3] == '\n':
-                        
                         effectif.append(Eff[2])
                     else:
-                        
                         effectif.append(Eff[3])
-                    
-                    
-                    
-                    
-                    
                                                 
             except FileNotFoundError:
                 print("Oops! pas de fichier pour le symbole",symbole[0])
                 
-                  
-                        
-    
-                    
+                     
     # DEBUT DU TRI
     for z in zip(entreprises,Ca,effectif,bilan,secteurs):
         listTuple.append(z)
@@ -613,11 +475,8 @@ def Taille2021():
        
         eff = int(z[2].replace(" ",""))
         
-        if eff == '\n': 
-            
-            
+        if eff == '\n':  
             eff = int(z[2].replace(" ",""))
-            
             
         # print(nom,eff,"ss")
         bi = int(z[3].replace(" ",""))
@@ -630,8 +489,7 @@ def Taille2021():
             Taille3.append("PME")
             noteTaille = notes[0]*coeffTaille
             TaillesNote.append(noteTaille)
-            compteur +=1
-            
+            compteur +=1 
         elif (eff<2500 and eff>250) and ((chiff < 1500000 and chiff>50000) or (bi < 2000000 and bi >43000)) : 
             # print(nom+" est une ETI du secteur",sect)
             ETI.append(nom)
@@ -639,10 +497,7 @@ def Taille2021():
             noteTaille = notes[1]*coeffTaille
             TaillesNote.append(noteTaille)
             compteur +=1
-      
         else:
-            
-            
             # print(nom+" "+" est une GE du secteur",sect)
             GE.append(nom)
             Taille3.append("GE")
@@ -650,8 +505,6 @@ def Taille2021():
             TaillesNote.append(noteTaille)
             
     return Taille3
-
-
 
 
 def TailleNote():
@@ -684,9 +537,9 @@ def TailleNote():
     Taille2 = []
     Taille3 = []
 
-    with open('listeSymbole.txt','r') as file: 
+    with open('ListeSymboles.txt','r') as file: 
         f = file.readlines()
-        print(len(f))
+        #print(len(f))
         for line in f:
             
             nomEntreprise=line.split(';')[0] 
@@ -698,16 +551,9 @@ def TailleNote():
             entreprises.append(nomEntreprise)
             secteurs.append(secteur)
            
-            
-                
-                
-              
-            
-                
-               
             try :
                                 
-                with open('/Users/Ykidd/Desktop/PROJET/data/'+symbole[0]+'/bilan.txt','r',encoding="latin-1") as file1:
+                with open(os.getcwd() + '\\data\\'+symbole[0]+'\\bilan.txt','r',encoding="latin-1") as file1:
                     f1 = file1.readlines()
                     
                    
@@ -721,15 +567,8 @@ def TailleNote():
                         
                         bilan.append(totalActif[2])
                     else:
-                        
-                       
-                        
-                  
-                       
-                        
-                       bilan.append(totalActif[3])
                     
-                    
+                        bilan.append(totalActif[3])
                     
                     Eff = re.split("[;]",f1[8])
                     if Eff[3] == '\n':
@@ -738,17 +577,9 @@ def TailleNote():
                     else:
                         
                         effectif.append(Eff[3])
-                    
-                    
-                    
-                    
-                    
-                                                
+                                         
             except FileNotFoundError:
-                print("Oops! pas de fichier pour le symbole",symbole[0])
-                
-                  
-                        
+                print("Oops! pas de fichier pour le symbole",symbole[0])     
     
                     
     # DEBUT DU TRI
@@ -757,15 +588,11 @@ def TailleNote():
         # print(listTuple)
         nom = z[0]
         chiff = int(z[1].replace(" ",""))
-       
         eff = int(z[2].replace(" ",""))
         
         if eff == '\n': 
-            
-            
             eff = int(z[2].replace(" ",""))
-            
-            
+
         # print(nom,eff,"ss")
         bi = int(z[3].replace(" ",""))
         sect = z[4]
@@ -778,7 +605,6 @@ def TailleNote():
             noteTaille = notes[0]*coeffTaille
             TaillesNote.append(noteTaille)
             compteur +=1
-            
         elif (eff<2500 and eff>250) and ((chiff < 1500000 and chiff>50000) or (bi < 2000000 and bi >43000)) : 
             # print(nom+" est une ETI du secteur",sect)
             ETI.append(nom)
@@ -786,10 +612,7 @@ def TailleNote():
             noteTaille = notes[1]*coeffTaille
             TaillesNote.append(noteTaille)
             compteur +=1
-      
         else:
-            
-            
             # print(nom+" "+" est une GE du secteur",sect)
             GE.append(nom)
             Taille3.append("GE")
@@ -801,16 +624,12 @@ def TailleNote():
 cas = []
 
 def NoteEvolution():
-
-
     for x in zip(Taille2019(),Taille2020(),Taille2021()):
-       
-       
+        
         evolu = []
         evolu.append(x)
         cas.append(x)
-        
-    
+
         # print(x)
         # print(evolu)
         with open('TailleEntreprises.txt','a') as file4:
@@ -819,115 +638,85 @@ def NoteEvolution():
             file4.write(x[1]+" ")
             
             file4.write(" "+x[2])
-           
+
             # file4.write(" "+x[3])
            
             file4.write("\n")
             #VERT
             
-            print(evolu[0])
+            #print(evolu[0])
             if  (evolu[0] == ('PME', 'PME', 'PME')):
-                print("STABLE")
+                #print("STABLE")
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
-           
             elif  (evolu[0] == ('GE', 'GE', 'GE')):
-                print("STABLE")
+                #print("STABLE")
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('ETI', 'ETI', 'ETI')):
-                print("STABLE")
+                #print("STABLE")
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
-            
             elif  (evolu[0] == ('GE', 'ETI', 'GE')):
-                print("STABLE") 
+                #print("STABLE") 
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('GE', 'ETI', 'ETI')):
-                print("STABLE")
+                #print("STABLE")
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('PME', 'GE', 'GE')):
-                print("STABLE")
+                #print("STABLE")
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
-                
+            
                 #VERT
             # CROISSANT
             
             
             elif  (evolu[0] == ('PME', 'PME', 'ETI')):
-               print("Croissant")
+               #print("Croissant")
                noteEvolu = notes[2]*coeffEvol
                Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('PME', 'ETI', 'ETI')):
-                print("Croissant")
+                #print("Croissant")
                 noteEvolu = notes[2]*coeffEvol
                 Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('PME', 'PME', 'GE')):
-               print("Croissant")
+               #print("Croissant")
                noteEvolu = notes[2]*coeffEvol
                Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('PME', 'ETI', 'GE')):
-               print("Croissant")
+               #print("Croissant")
                noteEvolu = notes[2]*coeffEvol
                Evolutions.append(noteEvolu)
             elif  (evolu[0] == ('ETI', 'ETI', 'GE')):
-               print("Croissant")
+               #print("Croissant")
                noteEvolu = notes[2]*coeffEvol
                Evolutions.append(noteEvolu)
-        
             else:
                 noteEvolu = notes[0]*coeffEvol
                 Evolutions.append(noteEvolu)
-                print("Decroissant")
+                #print("Decroissant")
     return Evolutions
-           
-         
-            
-            
-                
-                
 
 
 MoyenneEntreprise = []
 
 
-# RETOURNE LA MOYENNE ATTRIBUE A l'entreprise
-
-
 def Moyenne():
-    
     for i in zip(NotePer(),NotePEG(),NoteEvolution(),TailleNote()):
        m = (i[0] + i[1] + i[2] + i[3]) /10
-       
        MoyenneEntreprise.append(m)
-    
-     
-        
     return MoyenneEntreprise
-
-    
-
 
 
 def FonctionNote(entreprise):
-    
     for i in zip(entreprises,Moyenne()):
-        
         if (entreprise.upper() == i[0]):
-            print("Trouvé")
+            #print("Trouvé")
             return i[1]
        
                   
-      
-    
-    
-    
-print(FonctionNote("vinci"))    
-    
-    
-    
-    
-     
+ 
+# print(FonctionNote("vinci"))
