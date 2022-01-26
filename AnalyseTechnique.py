@@ -66,22 +66,23 @@ def AnalyserValeursHistoriques(symbol, dateStart) :
 
     startTime = time.time()
 
-    for i in range(10, 300, 10) :           # j >= i, donc si EMA(i) > EMA(j) : croissance
-        for j in range(i+10, 300, 10) :     #              si EMA(i) < EMA(j) : décroissance
+    for i in range(10, 150, 10) :           # j >= i, donc si EMA(i) > EMA(j) : croissance
+        for j in range(i+10, 150, 10) :     #              si EMA(i) < EMA(j) : décroissance
             for k in range(1, 51) :
                 hysteresis = 0.0001 * k
                 listEMAi = CalculerEMA(closingData, i)
                 listEMAj = CalculerEMA(closingData, j)
-                listPositions = CalculerPositions(listEMAi[300:], listEMAj[300:], hysteresis)
-                score = CalculerScore(closingData[300:], listPositions)
+                listPositions = CalculerPositions(listEMAi[150:], listEMAj[150:], hysteresis)
+                score = CalculerScore(closingData[150:], listPositions)
                 if (score > bestParameters[3]) :
                     bestParameters = [i, j, k, score]
     print(bestParameters, (time.time() - startTime))
+    print(len(listEMAi), len(listEMAj), len(listPositions))
     return bestParameters
 
-""" with open('ListeSymboles.txt', 'r') as file :
+with open('ListeSymboles.txt', 'r') as file :
     lines = file.readlines()
     for line in lines :
         symbole = line.strip().split(';')[1]
         print(symbole, end='')
-        AnalyserValeursHistoriques(symbole, '01/01/2016') """
+        AnalyserValeursHistoriques(symbole, '01/01/2016')

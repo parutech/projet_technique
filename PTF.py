@@ -1,5 +1,7 @@
+from contextlib import closing
 import datetime
 import os
+from django.forms import SelectDateWidget
 import pandas
 
 import WebScraping
@@ -8,6 +10,7 @@ import AnalyseTechnique
 
 dateActuelle = datetime.date(2019, 1, 1)
 listeObjetsActions = []
+listeActionsSelect = []
 
 """ dateDebut = datetime.date(2019, 1, 1)
 dateFin = datetime.date(2021, 12, 31)
@@ -34,12 +37,9 @@ class Action :
                     self.secteur = lineSplit[2]
                     self.quantite = 0
                     self.setDonneesSimulation()
-                    self.valeur = self.getValeur()
-                    self.derniereValeur = self.valeur
-                    #self.sentiment = self.getSentiment()
-                    #self.strategie = self.getStrategie()
+                    self.derniereValeur = self.getValeur()
                     # print(nom, symbole, secteur)
-                    break
+                    listeObjetsActions.append(self)
 
     def setQuantite(self, quantite) :
         self.quantite = quantite
@@ -62,7 +62,7 @@ class Action :
 
     def setDonneesHistoriques(self) :
         dateHistorique = dateActuelle
-        dateHistorique.year = dateActuelle.year - 3
+        dateHistorique = datetime.date((dateActuelle.year - 3), dateActuelle.month, dateActuelle.day)
         strDateHistorique = dateHistorique.strftime('%d/%m/%Y')
         filePath = os.getcwd() + '\\data\\' + self.symbole + '\\' + strDateHistorique.replace('/', '-') + '_3Y.txt'
         if (os.path.exists(filePath) == False) :
@@ -106,6 +106,16 @@ class Action :
         strDateHistorique = dateHistorique.strftime('%d/%m/%Y')
         return AnalyseTechnique.AnalyserValeursHistoriques(self.symbole, strDateHistorique)
 
+    def getPosition(self) :
+        shortPeriod, longPeriod, hysteresis = self.getParametresOptimaux()
+        cheminFichier = os.getcwd() + '\\data\\' + self.symbole + '\\01-01-2018_3Y.txt'
+        dataFrame = pandas.read_csv(cheminFichier, sep=';', names=['Date', 'Ouverture', 'Cloture'])[::-1]
+        strDateActuelle = dateActuelle.strftime('%d/%m/%Y')
+        indexJourActuel = dataFrame.index[dataFrame['Date'] == strDateActuelle]
+        closingData = dataFrame['Ouverture'].tolist()[:(indexJourActuel + 1)]
+        listEMAshort = AnalyseTechnique.CalculerEMA(closingData, shortPeriod)
+        listEMAlong = AnalyseTechnique.CalculerEMA(closingData, longPeriod)
+        return AnalyseTechnique.CalculerPositions(listEMAshort, listEMAlong, hysteresis)[-1]
 
 class Portefeuille :
     global dateActuelle
