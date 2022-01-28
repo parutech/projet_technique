@@ -1,4 +1,4 @@
-Chiffre d'affaires de l'année;153 000;187 700;247 400;288 700;0;
+Chiffre d'affaires;246 984;267 900;352 011;297 041;
 Trésorerie et équivalents de trésorerie;17 386;29 190;25 349;38 997;25 526;
 Résultat net part du groupe dilué par action (en €);0;1;1.36;5.07;0.29;
 Résultat opérationnel;203;14 084;50 871;9 091;

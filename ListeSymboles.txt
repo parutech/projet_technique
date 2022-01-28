@@ -81,7 +81,7 @@ EURAZEO;1rPRF;Industries
 EURO DISNEY;1rPEDL;Services aux consommateurs
 EUROFINS SCIENTIFIC;1rPERF;Santé
 EURONEXT;1rPENX;Sociétés financières
-EUROPACORP;1rPALECP;Pétrole et gaz
+EUROPACORP;1rPALECP;Services aux consommateurs
 EUROPCAR MOBILITY GRP;1rPEUCAR;Services aux consommateurs
 EUTELSAT COMMUNIC.;1rPETL;Services aux consommateurs
 EXEL INDUSTRIES A;1rPEXE;Industries

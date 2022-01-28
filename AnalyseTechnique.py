@@ -14,19 +14,20 @@ def CalculerEMA(closingData, period) :
     return listEMA
 
 
-def CalculerPositions(listEMAi, listEMAj, hysteresis) :
+def CalculerPositions(listEMAi, listEMAj, hysteresis, tri = 1) :
     listPositions = []
     for i in range(len(listEMAi)) :
         if (listEMAi[i] > listEMAj[i] * (1 + hysteresis)) :
-            listPositions.append('BUY')
+            listPositions.append('ACHETER')
         elif (listEMAi[i] < listEMAj[i] * (1 - hysteresis)) :
-            listPositions.append('SELL')
+            listPositions.append('VENDRE')
         else :
             if (len(listPositions) == 0) :
-                listPositions.append('NONE')
+                listPositions.append('ATTENDRE')
             else :
                 listPositions.append(listPositions[i-1])
-    listPositions = TrierPositions(listPositions)
+    if tri :
+        listPositions = TrierPositions(listPositions)
     return listPositions
 
 
@@ -76,13 +77,13 @@ def AnalyserValeursHistoriques(symbol, dateStart) :
                 score = CalculerScore(closingData[150:], listPositions)
                 if (score > bestParameters[3]) :
                     bestParameters = [i, j, k, score]
-    print(bestParameters, (time.time() - startTime))
-    print(len(listEMAi), len(listEMAj), len(listPositions))
-    return bestParameters
+    # print(bestParameters, (time.time() - startTime))
+    # print(len(listEMAi), len(listEMAj), len(listPositions))
+    return bestParameters[0], bestParameters[1], bestParameters[2]
 
-with open('ListeSymboles.txt', 'r') as file :
+""" with open('ListeSymboles.txt', 'r') as file :
     lines = file.readlines()
     for line in lines :
         symbole = line.strip().split(';')[1]
         print(symbole, end='')
-        AnalyserValeursHistoriques(symbole, '01/01/2016')
+        AnalyserValeursHistoriques(symbole, '01/01/2016') """

@@ -716,3 +716,6 @@ def FonctionNote(entreprise):
         if (entreprise.upper() == i[0]):
             #print("Trouvé")
             return i[1]
+
+
+#FonctionNote('ABC ARBITRAGE')

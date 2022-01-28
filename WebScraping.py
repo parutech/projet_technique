@@ -101,98 +101,109 @@ def CreerValeursHistoriques(symbole, dateDepart, duree, param='w') :
 
 
 # Récupération des données de bilan d'entreprise
-def CreerDonneesBilan() :
-    with open('ListeSymboles.txt', 'r') as file :
-        lines = file.readlines()
-        for line in lines :
-            symbole = line.strip().split(';')[1]
-            bilantxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
+def CreerDonneesBilan(symbole) :
+    bilantxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'bilan.txt'
 
-            url = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
+    if (os.path.exists(bilantxt) == False) :
 
-            response = requests.get(url)
-            soup = BeautifulSoup(response.text, 'lxml')
-            lignesTableau = soup.findAll('tr', {'class': 'c-table__row'})
+        url = ('https://www.boursorama.com/cours/societe/chiffres-cles/' + symbole + '/')
 
-            with open(bilantxt, 'a') as file:
-                for ligne in lignesTableau:
-                    nombres = ligne.findAll('div')
-                    for nombre in nombres:
-                        (nombre.text.strip())
-                        file.write(nombre.text.strip() + ';')
-                    file.write('\n')
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'lxml')
+        lignesTableau = soup.findAll('tr', {'class': 'c-table__row'})
 
-            with open(bilantxt, 'r') as file:
-                lines = file.readlines()
-                for line in lines :
-                    if 'Trésorerie' in line :
-                        treso = line
-                    if "Chiffre d'affaires de l'année" in line :
-                        ca = line
-                    if 'Résultat net' in line :
-                        resunet = line
-                    if 'Résultat opérationnel' in line :
-                        resuope = line
-                    if 'Résultat net part du groupe dilué par action' in line :
-                        resunetact = line
-                    if 'Rentabilité financière' in line :
-                        rentafinance = line
-                    if "Ratio d'endettement" in line :
-                        ratiod = line
-                    if 'Total actif' in line :
-                        totalactif = line
-                    if "Effectif en fin d'année" in line :
-                        effectif = line
+        with open(bilantxt, 'a') as file:
+            for ligne in lignesTableau:
+                nombres = ligne.findAll('div')
+                for nombre in nombres:
+                    (nombre.text.strip())
+                    file.write(nombre.text.strip() + ';')
+                file.write('\n')
 
-            with open (bilantxt, 'w', encoding='utf8') as file:
-                file.write(ca)
-                file.write(treso)
-                file.write(resunet)
-                file.write(resuope)
-                file.write(resunetact)
-                file.write(rentafinance)
-                file.write(ratiod)
-                file.write(totalactif)
-                file.write(effectif)
+        ca = "Chiffre d'affaires de l'année;0;0;0;0;0;\n"
+        treso = 'Trésorerie et équivalents de trésorerie;0;0;0;0;0;\n'
+        resunet = 'Résultat net part du groupe dilué par action (en €);0;0;0;0;0;\n'
+        resuope = 'Résultat opérationnel;0;0;0;0;\n'
+        resunetact = 'Résultat net part du groupe dilué par action (en €);0;0;0;0;0;\n'
+        rentafinance = 'Rentabilité financière (en %);0;0;0;0;0;\n'
+        ratiod = "Ratio d'endettement;0;0;0;0;0;\n"
+        totalactif = 'Total actif;0;0;0;0;0;\n'
+        effectif = "Effectif en fin d'année;0;0;0;0;0;\n"
+
+        with open(bilantxt, 'r') as file:
+            lines = file.readlines()
+            for line in lines :
+                if 'Trésorerie' in line :
+                    treso = line
+                if "Chiffre d'affaires" in line :
+                    ca = line
+                if 'Résultat net' in line :
+                    resunet = line
+                if 'Résultat opérationnel' in line :
+                    resuope = line
+                if 'Résultat net part du groupe dilué par action' in line :
+                    resunetact = line
+                if 'Rentabilité financière' in line :
+                    rentafinance = line
+                if "Ratio d'endettement" in line :
+                    ratiod = line
+                if 'Total actif' in line :
+                    totalactif = line
+                if "Effectif en fin d'année" in line :
+                    effectif = line
+
+        with open (bilantxt, 'w', encoding='utf8') as file:
+            file.write(ca)
+            file.write(treso)
+            file.write(resunet)
+            file.write(resuope)
+            file.write(resunetact)
+            file.write(rentafinance)
+            file.write(ratiod)
+            file.write(totalactif)
+            file.write(effectif)
 
 
 # Récupérer les données d'estimation de l'entreprise
-def CreerDonneesEstimation() :
-    with open('ListeSymboles.txt', 'r') as file :
-        lines = file.readlines()
-        for line in lines :
-            symbole = line.strip().split(';')[1]
-            estimationstxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'estimations.txt'
+def CreerDonneesEstimation(symbole) :
+    estimationstxt = os.getcwd() + '\\data\\' + symbole + '\\' + 'estimations.txt'
 
-            url = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')
+    if (os.path.exists(estimationstxt) == False) :
 
-            response = requests.get(url)
-            soup = BeautifulSoup(response.text, 'lxml')
-            lignesTableau = soup.findAll('tr', {'class': 'c-table__row c-table-evolution__row-top'})
+        url = ('https://www.boursorama.com/cours/consensus/' + symbole + '/')
 
-            with open(estimationstxt, 'a') as file:
-                for ligne in lignesTableau:
-                    nombres = ligne.findAll('td')
-                    for nombre in nombres:
-                        nombrestr = str(nombre)
-                        nombrestr = nombrestr.split('>')[1].split('<')[0].strip()
-                        file.write(nombrestr + ';')
-                    file.write('\n')
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'lxml')
+        lignesTableau = soup.findAll('tr', {'class': 'c-table__row c-table-evolution__row-top'})
 
-            with open(estimationstxt, 'r') as file:
-                lines = file.readlines()
-                for line in lines:
-                    if 'EBITDA' in line:
-                        ebitda = line
-                    if 'PER' in line:
-                        per = line
-                    if 'Bénéfice net par action' in line:
-                        benef = line
-                    if 'Dette financière nette' in line :
-                        dettefin = line
+        with open(estimationstxt, 'a') as file:
+            for ligne in lignesTableau:
+                nombres = ligne.findAll('td')
+                for nombre in nombres:
+                    nombrestr = str(nombre)
+                    nombrestr = nombrestr.split('>')[1].split('<')[0].strip()
+                    file.write(nombrestr + ';')
+                file.write('\n')
 
-            with open (estimationstxt, 'w', encoding='utf8') as file:
-                file.write(ebitda)
-                file.write(per)
-                file.write(benef)
-                file.write(dettefin)
+        ebitda = 'EBITDA;0;0;0;\n'
+        per = 'PER;0.00;0.00;0.00;\n'
+        benef = 'Bénéfice net par action;0.00;0.00;0.00;\n'
+        dettefin = 'Dette financière nette;0;0;0;\n'
+
+        with open(estimationstxt, 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                if 'EBITDA' in line:
+                    ebitda = line
+                if 'PER' in line:
+                    per = line
+                if 'Bénéfice net par action' in line:
+                    benef = line
+                if 'Dette financière nette' in line :
+                    dettefin = line
+
+        with open (estimationstxt, 'w', encoding='utf8') as file:
+            file.write(ebitda)
+            file.write(per)
+            file.write(benef)
+            file.write(dettefin)
